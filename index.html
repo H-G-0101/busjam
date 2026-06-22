@@ -95,6 +95,8 @@
         #loadingScreen .bj-fill{ height:100%; width:0%; border-radius:20px; background:linear-gradient(180deg,#FFE873,#FF9E2C);
             box-shadow:inset 0 2px 2px rgba(255,255,255,.6); transition:width .25s ease; }
         #loadingScreen .bj-pct{ margin-top:12px; font-weight:800; font-size:18px; color:#fff; letter-spacing:1px; text-shadow:0 2px 4px rgba(0,0,0,.3); }
+        #loadingScreen .bj-tap{ display:none; margin-top:10px; font-weight:900; font-size:26px; letter-spacing:2px; color:#fff; text-shadow:0 3px 7px rgba(0,0,0,.4); animation:bjpulse 1.1s ease-in-out infinite; }
+        @keyframes bjpulse{ 0%,100%{opacity:.55; transform:scale(1);} 50%{opacity:1; transform:scale(1.07);} }
     </style>
 </head>
 <body>
@@ -103,24 +105,39 @@
         <div class="bj-bus">&#128652;</div>
         <div class="bj-word">BUS</div>
         <div class="bj-sub">JAM</div>
-        <div class="bj-track"><div class="bj-fill" id="bjFill"></div></div>
+        <div class="bj-track" id="bjTrack"><div class="bj-fill" id="bjFill"></div></div>
         <div class="bj-pct" id="bjPct">0%</div>
+        <div class="bj-tap" id="bjTap">TAP TO CONTINUE</div>
     </div>
     <script>
     (function(){
-        var p=0, fill, pct, scr, done=false, timer;
+        var p=0, fill, pct, scr, track, tap, timer, ready=false, gone=false;
         function setBar(v){ if(fill)fill.style.width=v+"%"; if(pct)pct.textContent=Math.round(v)+"%"; }
         function start(){
-            fill=document.getElementById("bjFill"); pct=document.getElementById("bjPct"); scr=document.getElementById("loadingScreen");
-            timer=setInterval(function(){ if(done)return; p+=Math.max(.3,(90-p)*0.035); if(p>90)p=90; setBar(p); },110);
+            fill=document.getElementById("bjFill"); pct=document.getElementById("bjPct");
+            scr=document.getElementById("loadingScreen"); track=document.getElementById("bjTrack"); tap=document.getElementById("bjTap");
+            timer=setInterval(function(){ if(ready)return; p+=Math.max(.3,(90-p)*0.035); if(p>90)p=90; setBar(p); },110);
         }
-        /* progresso real dos assets (chamado pelo game) */
-        window.__bjReal=function(v){ if(done)return; var target=30+(+v||0)*0.62; if(target>p)p=target>92?92:target; setBar(p); };
-        /* fim do carregamento (chamado por hideLoadingUI) */
-        window.__bjDone=function(){ if(done)return; done=true; clearInterval(timer); setBar(100);
-            if(scr){ scr.style.transition="opacity .5s ease"; scr.style.opacity="0"; setTimeout(function(){ scr.style.display="none"; },520); } };
+        /* progresso real dos assets */
+        window.__bjReal=function(v){ if(ready)return; var t=30+(+v||0)*0.62; if(t>p)p=t>92?92:t; setBar(p); };
+        function onTap(){
+            if(gone)return; gone=true;
+            try{ if(window.__bjContinue) window.__bjContinue(); }catch(e){}   /* dispara a funcao original do jogo (dentro do gesto -> audio destrava) */
+            if(scr){ scr.style.transition="opacity .45s ease"; scr.style.opacity="0"; setTimeout(function(){ scr.style.display="none"; },470); }
+        }
+        /* carregamento concluido -> vira TAP TO CONTINUE */
+        window.__bjReady=function(){
+            if(ready)return; ready=true; clearInterval(timer); setBar(100);
+            setTimeout(function(){
+                if(track)track.style.display="none"; if(pct)pct.style.display="none";
+                if(tap)tap.style.display="block";
+                if(scr){ scr.style.cursor="pointer"; scr.addEventListener("click",onTap,{once:true}); scr.addEventListener("touchend",onTap,{once:true}); }
+            },250);
+        };
+        /* failsafe duro: esconde tudo (ultimo recurso) */
+        window.__bjDone=function(){ if(gone)return; gone=true; if(scr){ scr.style.opacity="0"; setTimeout(function(){ scr.style.display="none"; },470); } };
         if(document.readyState!=="loading") start(); else document.addEventListener("DOMContentLoaded",start);
-        setTimeout(function(){ if(window.__bjDone)window.__bjDone(); },20000); /* failsafe: nunca trava */
+        setTimeout(function(){ if(!ready && window.__bjReady)window.__bjReady(); },20000); /* failsafe: arma o tap */
     })();
     </script>
 
@@ -137,7 +154,7 @@
 
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js"></script>
-    <script src="js/game.js?v=cidi8"></script>
+    <script src="js/game.js?v=cidi9"></script>
         
 
 

@@ -120,6 +120,7 @@
         window.__bjDone=function(){ if(done)return; done=true; clearInterval(timer); setBar(100);
             if(scr){ scr.style.transition="opacity .5s ease"; scr.style.opacity="0"; setTimeout(function(){ scr.style.display="none"; },520); } };
         if(document.readyState!=="loading") start(); else document.addEventListener("DOMContentLoaded",start);
+        setTimeout(function(){ if(window.__bjDone)window.__bjDone(); },20000); /* failsafe: nunca trava */
     })();
     </script>
 
@@ -136,7 +137,7 @@
 
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js"></script>
-    <script src="js/game.js?v=cidi7"></script>
+    <script src="js/game.js?v=cidi8"></script>
         
 
 

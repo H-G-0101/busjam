@@ -98,28 +98,40 @@
         #loadingScreen .bj-tap{ display:none; margin-top:10px; font-weight:900; font-size:26px; letter-spacing:2px; color:#fff; text-shadow:0 3px 7px rgba(0,0,0,.4); animation:bjpulse 1.1s ease-in-out infinite; }
         @keyframes bjpulse{ 0%,100%{opacity:.55; transform:scale(1);} 50%{opacity:1; transform:scale(1.07);} }
 
-        /* ===== Modal de Moedas Grátis ===== */
+        /* ===== Loja de Moedas (anuncios) ===== */
         #freeCoinsModal{ position:fixed; inset:0; z-index:2000; display:none; align-items:center; justify-content:center;
-            background:rgba(0,0,0,.6); font-family:Arial,Helvetica,sans-serif; -webkit-tap-highlight-color:transparent; }
-        #freeCoinsModal .fc-card{ position:relative; width:min(86vw,360px); padding:30px 24px 26px; text-align:center;
-            background:linear-gradient(180deg,#FFB23E,#FF8A1E); border:5px solid #fff; border-radius:32px;
-            box-shadow:0 14px 40px rgba(0,0,0,.45); animation:fcpop .28s cubic-bezier(.2,1.3,.5,1) both; }
+            background:rgba(0,0,0,.62); font-family:Arial,Helvetica,sans-serif; -webkit-tap-highlight-color:transparent; }
+        #freeCoinsModal .sh-card{ position:relative; width:min(90vw,400px); max-height:86vh; display:flex; flex-direction:column;
+            background:linear-gradient(180deg,#1F6FB2,#15598F); border:5px solid #fff; border-radius:28px;
+            box-shadow:0 14px 44px rgba(0,0,0,.5); animation:fcpop .28s cubic-bezier(.2,1.3,.5,1) both; overflow:hidden; }
         @keyframes fcpop{ 0%{ transform:scale(.7); opacity:0; } 100%{ transform:scale(1); opacity:1; } }
-        #freeCoinsModal .fc-coin{ position:relative; width:90px; height:90px; margin:2px auto 16px; border-radius:50%;
-            background:radial-gradient(circle at 35% 30%,#FFE680,#F2B100 72%); border:6px solid #E59400;
-            box-shadow:0 8px 16px rgba(0,0,0,.28), inset 0 -5px 8px rgba(0,0,0,.18); }
-        #freeCoinsModal .fc-coin::after{ content:""; position:absolute; inset:16px; border-radius:50%; border:4px solid rgba(255,255,255,.4); }
-        #freeCoinsModal .fc-title{ font-size:30px; font-weight:900; color:#fff; letter-spacing:1px; text-shadow:0 3px 4px rgba(0,0,0,.25); margin-bottom:8px; }
-        #freeCoinsModal .fc-desc{ font-size:17px; color:#fff; opacity:.97; line-height:1.35; margin-bottom:22px; text-shadow:0 1px 2px rgba(0,0,0,.2); }
-        #freeCoinsModal .fc-desc b{ font-size:21px; }
-        #freeCoinsModal .fc-btn{ width:100%; padding:16px; font-size:22px; font-weight:900; letter-spacing:1px; color:#fff;
-            background:linear-gradient(180deg,#34B3F1,#1E84D6); border:4px solid #fff; border-radius:22px;
-            box-shadow:0 6px 0 #1565A8,0 11px 18px rgba(0,0,0,.3); text-shadow:0 2px 3px rgba(0,0,0,.3); cursor:pointer; transition:transform .06s; }
-        #freeCoinsModal .fc-btn:active{ transform:translateY(3px); box-shadow:0 3px 0 #1565A8,0 6px 12px rgba(0,0,0,.3); }
-        #freeCoinsModal .fc-btn:disabled{ filter:grayscale(.45); opacity:.75; cursor:default; }
-        #freeCoinsModal .fc-close{ position:absolute; top:-14px; right:-14px; width:42px; height:42px; border-radius:50%;
-            background:#fff; color:#FF7A00; font-size:22px; font-weight:900; line-height:38px; border:3px solid #FF9E2C;
-            box-shadow:0 4px 10px rgba(0,0,0,.3); cursor:pointer; }
+        #freeCoinsModal .sh-head{ position:relative; padding:16px 18px 14px; background:linear-gradient(180deg,#2C86CE,#1F6FB2);
+            display:flex; align-items:center; justify-content:center; border-bottom:3px solid rgba(0,0,0,.15); }
+        #freeCoinsModal .sh-head .sh-title{ font-size:26px; font-weight:900; color:#fff; letter-spacing:2px; text-shadow:0 3px 4px rgba(0,0,0,.3); }
+        #freeCoinsModal .sh-bal{ position:absolute; left:14px; top:50%; transform:translateY(-50%); display:flex; align-items:center; gap:7px;
+            background:rgba(0,0,0,.22); border-radius:20px; padding:5px 12px 5px 6px; }
+        #freeCoinsModal .sh-bal .coin{ width:24px; height:24px; border-radius:50%;
+            background:radial-gradient(circle at 35% 30%,#FFE680,#F2B100 72%); border:2px solid #E59400; box-shadow:inset 0 -2px 3px rgba(0,0,0,.2); }
+        #freeCoinsModal .sh-bal span{ font-size:17px; font-weight:800; color:#fff; }
+        #freeCoinsModal .sh-close{ position:absolute; right:12px; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%;
+            background:rgba(255,255,255,.18); color:#fff; font-size:22px; font-weight:900; line-height:40px; text-align:center; cursor:pointer; }
+        #freeCoinsModal .sh-list{ padding:16px; overflow-y:auto; display:flex; flex-direction:column; gap:14px; }
+        #freeCoinsModal .sh-pack{ display:flex; align-items:center; gap:14px; padding:14px 16px; border-radius:22px;
+            background:linear-gradient(180deg,#EAF4FF,#CFE6FB); border:4px solid #fff; box-shadow:0 6px 14px rgba(0,0,0,.22); }
+        #freeCoinsModal .sh-pack .pk-coins{ display:flex; align-items:center; gap:9px; flex:1; }
+        #freeCoinsModal .sh-pack .pk-pile{ position:relative; width:54px; height:54px; flex:none; border-radius:50%;
+            background:radial-gradient(circle at 35% 28%,#FFE680,#F2B100 72%); border:4px solid #E59400; box-shadow:0 4px 8px rgba(0,0,0,.25), inset 0 -4px 6px rgba(0,0,0,.18); }
+        #freeCoinsModal .sh-pack .pk-pile::after{ content:"P"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+            font-size:24px; font-weight:900; color:#C98300; text-shadow:0 1px 0 rgba(255,255,255,.5); }
+        #freeCoinsModal .sh-pack .pk-amt{ font-size:27px; font-weight:900; color:#1C4E78; text-shadow:0 1px 0 rgba(255,255,255,.6); }
+        #freeCoinsModal .sh-btn{ flex:none; min-width:104px; padding:13px 12px; font-size:18px; font-weight:900; color:#fff;
+            background:linear-gradient(180deg,#3FBF4A,#2A9E37); border:3px solid #fff; border-radius:18px;
+            box-shadow:0 5px 0 #1F7A29,0 8px 14px rgba(0,0,0,.28); text-shadow:0 2px 2px rgba(0,0,0,.3); cursor:pointer; transition:transform .06s;
+            display:flex; align-items:center; justify-content:center; gap:6px; }
+        #freeCoinsModal .sh-btn .ad{ font-size:11px; font-weight:900; background:#fff; color:#2A9E37; border-radius:5px; padding:2px 5px; letter-spacing:.5px; }
+        #freeCoinsModal .sh-btn:active{ transform:translateY(3px); box-shadow:0 2px 0 #1F7A29,0 5px 10px rgba(0,0,0,.28); }
+        #freeCoinsModal .sh-btn:disabled{ filter:grayscale(.4); opacity:.7; cursor:default; }
+        #freeCoinsModal .sh-pack.free{ background:linear-gradient(180deg,#FFF4D6,#FFE39E); }
     </style>
 </head>
 <body>
@@ -164,42 +176,76 @@
     })();
     </script>
 
-    <!-- ===== Modal de Moedas Grátis ===== -->
+    <!-- ===== Loja de Moedas (anuncios) ===== -->
     <div id="freeCoinsModal">
-        <div class="fc-card">
-            <div class="fc-close" id="fcClose">&#10005;</div>
-            <div class="fc-coin"></div>
-            <div class="fc-title">FREE COINS!</div>
-            <div class="fc-desc" id="fcDesc"></div>
-            <button class="fc-btn" id="fcBtn">&#9654;&nbsp; WATCH AD</button>
+        <div class="sh-card">
+            <div class="sh-head">
+                <div class="sh-bal"><div class="coin"></div><span id="shBal">0</span></div>
+                <div class="sh-title">STORE</div>
+                <div class="sh-close" id="shClose">&#10005;</div>
+            </div>
+            <div class="sh-list" id="shList"></div>
         </div>
     </div>
     <script>
     (function(){
-        var REWARD = 500;                 /* moedas por anuncio - mude aqui */
-        var modal, desc, btn;
+        /* ===== pacotes: moedas por N anuncios (mude aqui) ===== */
+        var PACKS = [
+            { coins:100,  ads:1 },
+            { coins:300,  ads:2 },
+            { coins:700,  ads:4 },
+            { coins:1500, ads:8 }
+        ];
+        var modal, list, balEl, busy=false;
+
+        function adLabel(n){ return n+" AD"+(n>1?"S":""); }
+        function refreshBal(){ if(balEl) balEl.textContent = (window.PlayerCash|0); }
+
+        function buyPack(pack, btn){
+            if(busy) return; busy=true;
+            var watched=0;
+            function step(){
+                if(watched>=pack.ads){            /* todos os anuncios vistos -> credita */
+                    if(window.__bjAddCoins) window.__bjAddCoins(pack.coins);
+                    refreshBal(); busy=false; resetBtn(btn, pack);
+                    return;
+                }
+                if(btn) btn.innerHTML = "AD "+(watched+1)+"/"+pack.ads;
+                if(window.__bjWatchAd){
+                    window.__bjWatchAd(function(ok){
+                        if(ok){ watched++; step(); }
+                        else { busy=false; resetBtn(btn, pack); }   /* desistiu/falhou: nao credita */
+                    });
+                } else { busy=false; resetBtn(btn, pack); }
+            }
+            if(btn) btn.disabled=true;
+            step();
+        }
+        function resetBtn(btn, pack){ if(btn){ btn.disabled=false; btn.innerHTML='<span class="ad">AD</span> '+adLabel(pack.ads); } }
+
+        function build(){
+            if(!list) return; list.innerHTML="";
+            PACKS.forEach(function(pack){
+                var row=document.createElement("div"); row.className="sh-pack";
+                var info=document.createElement("div"); info.className="pk-coins";
+                info.innerHTML='<div class="pk-pile"></div><div class="pk-amt">'+pack.coins+'</div>';
+                var btn=document.createElement("button"); btn.className="sh-btn";
+                btn.innerHTML='<span class="ad">AD</span> '+adLabel(pack.ads);
+                btn.addEventListener("click", function(){ buyPack(pack, btn); });
+                row.appendChild(info); row.appendChild(btn); list.appendChild(row);
+            });
+        }
         function init(){
             modal=document.getElementById("freeCoinsModal");
-            desc =document.getElementById("fcDesc");
-            btn  =document.getElementById("fcBtn");
-            if(desc) desc.innerHTML = "Watch a short ad and get <b>"+REWARD+"</b> coins";
-            var close=document.getElementById("fcClose");
+            list =document.getElementById("shList");
+            balEl=document.getElementById("shBal");
+            build();
+            var close=document.getElementById("shClose");
             if(close) close.addEventListener("click", window.__bjHideFreeCoins);
-            if(btn)   btn.addEventListener("click", window.__bjWatchCoinAd);
             if(modal) modal.addEventListener("click", function(e){ if(e.target===modal) window.__bjHideFreeCoins(); });
         }
-        window.__bjShowFreeCoins=function(){
-            if(!modal) return;
-            if(btn){ btn.disabled=false; btn.innerHTML="&#9654;&nbsp; WATCH AD"; }
-            modal.style.display="flex";
-        };
-        window.__bjHideFreeCoins=function(){ if(modal) modal.style.display="none"; };
-        window.__bjWatchCoinAd=function(){
-            if(btn){ btn.disabled=true; btn.textContent="LOADING..."; }
-            if(window.__bjCoinAd){
-                window.__bjCoinAd(REWARD, function(ok){ window.__bjHideFreeCoins(); });
-            } else { window.__bjHideFreeCoins(); }
-        };
+        window.__bjShowFreeCoins=function(){ if(!modal) return; refreshBal(); modal.style.display="flex"; };
+        window.__bjHideFreeCoins=function(){ if(busy) return; if(modal) modal.style.display="none"; };
         if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded",init);
     })();
     </script>
@@ -217,7 +263,7 @@
 
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js"></script>
-    <script src="js/game.js?v=cidi16"></script>
+    <script src="js/game.js?v=cidi17"></script>
         
 
 

@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
-    <title>Bus Parking Out</title>
+    <title>Bus Jam</title>
 
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -73,8 +73,56 @@
         }
     </style>
 
+
+    <style>
+        #loadingScreen{
+            position:fixed; inset:0; z-index:99999;
+            display:flex; flex-direction:column; align-items:center; justify-content:center;
+            background:linear-gradient(180deg,#5AAEEB 0%,#7FC3F2 45%,#69BE8C 46%,#4FA873 100%);
+            font-family:"Segoe UI",system-ui,-apple-system,"Arial Black",sans-serif;
+            overflow:hidden; -webkit-tap-highlight-color:transparent;
+        }
+        #loadingScreen .bj-bus{ font-size:64px; animation:bjbounce 1s ease-in-out infinite; filter:drop-shadow(0 8px 6px rgba(0,0,0,.25)); }
+        @keyframes bjbounce{ 0%,100%{transform:translateY(0) rotate(-3deg);} 50%{transform:translateY(-14px) rotate(3deg);} }
+        #loadingScreen .bj-word{
+            margin:14px 0 4px; font-weight:900; font-size:72px; letter-spacing:2px; color:#FFCE3A; line-height:.95;
+            text-shadow:-3px -3px 0 #8B3A0E,3px -3px 0 #8B3A0E,-3px 3px 0 #8B3A0E,3px 3px 0 #8B3A0E,0 6px 0 #6E2D0A,0 12px 16px rgba(0,0,0,.35);
+        }
+        #loadingScreen .bj-sub{ font-weight:900; font-size:40px; letter-spacing:3px; color:#FFF6E6; margin-bottom:34px;
+            text-shadow:-2px -2px 0 #C45A14,2px -2px 0 #C45A14,-2px 2px 0 #C45A14,2px 2px 0 #C45A14,0 5px 0 #9E4810,0 10px 12px rgba(0,0,0,.3); }
+        #loadingScreen .bj-track{ width:min(72vw,360px); height:24px; background:rgba(0,0,0,.20); border:3px solid rgba(255,255,255,.7);
+            border-radius:20px; overflow:hidden; box-shadow:0 5px 12px rgba(0,0,0,.22), inset 0 2px 4px rgba(0,0,0,.25); }
+        #loadingScreen .bj-fill{ height:100%; width:0%; border-radius:20px; background:linear-gradient(180deg,#FFE873,#FF9E2C);
+            box-shadow:inset 0 2px 2px rgba(255,255,255,.6); transition:width .25s ease; }
+        #loadingScreen .bj-pct{ margin-top:12px; font-weight:800; font-size:18px; color:#fff; letter-spacing:1px; text-shadow:0 2px 4px rgba(0,0,0,.3); }
+    </style>
 </head>
 <body>
+
+    <div id="loadingScreen">
+        <div class="bj-bus">&#128652;</div>
+        <div class="bj-word">BUS</div>
+        <div class="bj-sub">JAM</div>
+        <div class="bj-track"><div class="bj-fill" id="bjFill"></div></div>
+        <div class="bj-pct" id="bjPct">0%</div>
+    </div>
+    <script>
+    (function(){
+        var p=0, fill, pct, scr, done=false, timer;
+        function setBar(v){ if(fill)fill.style.width=v+"%"; if(pct)pct.textContent=Math.round(v)+"%"; }
+        function start(){
+            fill=document.getElementById("bjFill"); pct=document.getElementById("bjPct"); scr=document.getElementById("loadingScreen");
+            timer=setInterval(function(){ if(done)return; p+=Math.max(.3,(90-p)*0.035); if(p>90)p=90; setBar(p); },110);
+        }
+        /* progresso real dos assets (chamado pelo game) */
+        window.__bjReal=function(v){ if(done)return; var target=30+(+v||0)*0.62; if(target>p)p=target>92?92:target; setBar(p); };
+        /* fim do carregamento (chamado por hideLoadingUI) */
+        window.__bjDone=function(){ if(done)return; done=true; clearInterval(timer); setBar(100);
+            if(scr){ scr.style.transition="opacity .5s ease"; scr.style.opacity="0"; setTimeout(function(){ scr.style.display="none"; },520); } };
+        if(document.readyState!=="loading") start(); else document.addEventListener("DOMContentLoaded",start);
+    })();
+    </script>
+
 
 
 
@@ -88,7 +136,7 @@
 
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js"></script>
-    <script src="js/game.js?v=cidi3"></script>
+    <script src="js/game.js?v=cidi7"></script>
         
 
 

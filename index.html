@@ -132,6 +132,12 @@
         #freeCoinsModal .sh-btn:active{ transform:translateY(3px); box-shadow:0 2px 0 #1F7A29,0 5px 10px rgba(0,0,0,.28); }
         #freeCoinsModal .sh-btn:disabled{ filter:grayscale(.4); opacity:.7; cursor:default; }
         #freeCoinsModal .sh-pack.free{ background:linear-gradient(180deg,#FFF4D6,#FFE39E); }
+        /* overlay de carregamento de anuncio */
+        #shLoadingAd{ position:fixed; inset:0; z-index:2100; display:none; flex-direction:column; align-items:center; justify-content:center;
+            background:rgba(0,0,0,.8); color:#fff; font-family:Arial,Helvetica,sans-serif; -webkit-tap-highlight-color:transparent; }
+        #shLoadingAd .sp{ width:56px; height:56px; border:6px solid rgba(255,255,255,.25); border-top-color:#3FBF4A; border-radius:50%; animation:shspin .8s linear infinite; }
+        @keyframes shspin{ to{ transform:rotate(360deg); } }
+        #shLoadingAd .txt{ margin-top:18px; font-size:20px; font-weight:800; letter-spacing:1px; text-shadow:0 2px 4px rgba(0,0,0,.4); }
     </style>
 </head>
 <body>
@@ -187,6 +193,7 @@
             <div class="sh-list" id="shList"></div>
         </div>
     </div>
+    <div id="shLoadingAd"><div class="sp"></div><div class="txt" id="shLoadTxt">Loading ad...</div></div>
     <script>
     (function(){
         /* ===== pacotes: moedas por N anuncios (mude aqui) ===== */
@@ -196,29 +203,36 @@
             { coins:700,  ads:4 },
             { coins:1500, ads:8 }
         ];
-        var modal, list, balEl, busy=false;
+        var modal, list, balEl, loadEl, loadTxt, busy=false;
 
         function adLabel(n){ return n+" AD"+(n>1?"S":""); }
         function refreshBal(){ if(balEl) balEl.textContent = (window.PlayerCash|0); }
+        function showLoad(t){ if(loadTxt) loadTxt.textContent=t||"Loading ad..."; if(loadEl) loadEl.style.display="flex"; }
+        function hideLoad(){ if(loadEl) loadEl.style.display="none"; }
 
         function buyPack(pack, btn){
             if(busy) return; busy=true;
+            if(btn) btn.disabled=true;
             var watched=0;
             function step(){
                 if(watched>=pack.ads){            /* todos os anuncios vistos -> credita */
                     if(window.__bjAddCoins) window.__bjAddCoins(pack.coins);
-                    refreshBal(); busy=false; resetBtn(btn, pack);
+                    refreshBal(); hideLoad(); busy=false; resetBtn(btn, pack);
                     return;
                 }
-                if(btn) btn.innerHTML = "AD "+(watched+1)+"/"+pack.ads;
+                showLoad("Loading ad "+(watched+1)+"/"+pack.ads);
+                var t0=Date.now();
                 if(window.__bjWatchAd){
                     window.__bjWatchAd(function(ok){
-                        if(ok){ watched++; step(); }
-                        else { busy=false; resetBtn(btn, pack); }   /* desistiu/falhou: nao credita */
+                        /* garante o overlay visivel por ~1s (sensacao de anuncio) */
+                        var wait=Math.max(0, 1000-(Date.now()-t0));
+                        setTimeout(function(){
+                            if(ok){ watched++; step(); }
+                            else { hideLoad(); busy=false; resetBtn(btn, pack); }  /* desistiu: nao credita */
+                        }, wait);
                     });
-                } else { busy=false; resetBtn(btn, pack); }
+                } else { hideLoad(); busy=false; resetBtn(btn, pack); }
             }
-            if(btn) btn.disabled=true;
             step();
         }
         function resetBtn(btn, pack){ if(btn){ btn.disabled=false; btn.innerHTML='<span class="ad">AD</span> '+adLabel(pack.ads); } }
@@ -239,6 +253,8 @@
             modal=document.getElementById("freeCoinsModal");
             list =document.getElementById("shList");
             balEl=document.getElementById("shBal");
+            loadEl=document.getElementById("shLoadingAd");
+            loadTxt=document.getElementById("shLoadTxt");
             build();
             var close=document.getElementById("shClose");
             if(close) close.addEventListener("click", window.__bjHideFreeCoins);
@@ -263,7 +279,7 @@
 
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js"></script>
-    <script src="js/game.js?v=cidi17"></script>
+    <script src="js/game.js?v=cidi18"></script>
         
 
 

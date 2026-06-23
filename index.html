@@ -150,7 +150,7 @@
             animation:fcpop .28s cubic-bezier(.2,1.3,.5,1) both; }
         #boosterModal .bm-x{ position:absolute; top:-6px; right:-6px; width:50px; height:50px; border-radius:50%; background:#1E5BB8;
             border:4px solid #5C9BEA; color:#fff; font-size:24px; font-weight:900; line-height:42px; box-shadow:0 5px 12px rgba(0,0,0,.4); cursor:pointer; }
-        #boosterModal .bm-title{ font-size:36px; font-weight:900; color:#fff; letter-spacing:1px; margin:4px 0 6px;
+        #boosterModal .bm-title{ font-size:33px; font-weight:900; color:#fff; letter-spacing:1px; margin:4px 0 6px;
             text-shadow:0 -2px 0 rgba(0,40,90,.5),0 3px 5px rgba(0,0,0,.4),0 1px 0 rgba(255,255,255,.55); }
         #boosterModal .bm-sub{ font-size:18px; font-weight:800; color:#EAF2FF; line-height:1.3; margin-bottom:12px; text-shadow:0 2px 3px rgba(0,0,0,.3); min-height:1.2em; }
         #boosterModal .bm-badge{ position:relative; width:200px; height:200px; margin:4px auto 14px; }
@@ -259,7 +259,7 @@
     </div>
     <script>
     (function(){
-        var modal,titleEl,subEl,priceEl,freeEl,hintEl,buyEl,freeBtn,curType=null,curFree="",busy=false;
+        var modal,titleEl,subEl,priceEl,freeEl,hintEl,buyEl,freeBtn,curType=null,curFree="",curMode="booster",busy=false;
         function $(id){ return document.getElementById(id); }
         function init(){
             modal=$("boosterModal"); titleEl=$("bmTitle"); subEl=$("bmSub"); priceEl=$("bmPrice");
@@ -270,32 +270,47 @@
             modal.addEventListener("click", function(e){ if(e.target===modal) onClose(); });
         }
         function hide(){ if(modal) modal.style.display="none"; }
-        function onClose(){ if(busy) return; hide(); if(window.__bjBoosterClose) window.__bjBoosterClose(); }
+        function shakeBuy(){ buyEl.classList.add("shake"); setTimeout(function(){ buyEl.classList.remove("shake"); },430); }
+        function onClose(){
+            if(busy) return; hide();
+            if(curMode==="spot"){ if(window.__bjSpotClose) window.__bjSpotClose(); }
+            else { if(window.__bjBoosterClose) window.__bjBoosterClose(); }
+        }
         function onBuy(){
-            if(busy) return;
-            var price=parseInt(priceEl.textContent)||0;
-            if(window.__bjBoosterPay){
-                window.__bjBoosterPay(curType, price, function(ok){
-                    if(ok){ hide(); }
-                    else { buyEl.classList.add("shake"); setTimeout(function(){ buyEl.classList.remove("shake"); },430); }
-                });
+            if(busy) return; var price=parseInt(priceEl.textContent)||0;
+            if(curMode==="spot"){
+                if(window.__bjSpotPay) window.__bjSpotPay(price, function(ok){ if(ok){hide();} else {shakeBuy();} });
+            } else if(window.__bjBoosterPay){
+                window.__bjBoosterPay(curType, price, function(ok){ if(ok){hide();} else {shakeBuy();} });
             }
         }
         function onFree(){
             if(busy) return; busy=true; freeEl.textContent="...";
-            if(window.__bjBoosterAdRun){
-                window.__bjBoosterAdRun(curType, function(ok){ busy=false; freeEl.textContent=curFree; hide(); });
-            } else { busy=false; freeEl.textContent=curFree; }
+            function done(ok){ busy=false; freeEl.textContent=curFree; hide(); }
+            if(curMode==="spot"){ if(window.__bjSpotAd) window.__bjSpotAd(done); else done(false); }
+            else if(window.__bjBoosterAdRun){ window.__bjBoosterAdRun(curType, done); }
+            else { busy=false; freeEl.textContent=curFree; }
         }
-        window.__bjShowBoosterModal=function(type,price,title,desc,freeLbl,hint){
-            if(!modal) return; busy=false;
-            curType=type; curFree=freeLbl||"FREE";
-            titleEl.textContent=title||""; subEl.textContent=desc||""; priceEl.textContent=price;
-            freeEl.textContent=curFree; hintEl.textContent=hint||"";
-            var TUT={ sort:"assets/imgs/shop/sort_modal.png" };
+        var TUT={ sort:"assets/imgs/shop/sort_modal.png", newspot:"assets/imgs/shop/parking_modal.png" };
+        function setCentral(type){
             var shuf=$("bmShuffleArt"), tut=$("bmTut");
             if(type==="shuffle"){ shuf.style.display=""; tut.style.display="none"; }
             else { shuf.style.display="none"; tut.src=TUT[type]||""; tut.style.display="block"; }
+        }
+        function fill(title,desc,price,freeLbl,hint){
+            titleEl.textContent=title||""; subEl.textContent=desc||""; priceEl.textContent=price;
+            curFree=freeLbl||"FREE"; freeEl.textContent=curFree; hintEl.textContent=hint||"";
+        }
+        window.__bjShowBoosterModal=function(type,price,title,desc,freeLbl,hint){
+            if(!modal) return; busy=false; curMode="booster"; curType=type;
+            fill(title,desc,price,freeLbl,hint);
+            buyEl.style.display=""; setCentral(type);
+            modal.style.display="flex";
+        };
+        window.__bjShowSpotModal=function(price,title,desc,freeLbl,hint){
+            if(!modal) return; busy=false; curMode="spot"; curType="newspot";
+            fill(title,desc,price,freeLbl,hint);
+            buyEl.style.display="none"; setCentral("newspot");
             modal.style.display="flex";
         };
         if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded",init);
@@ -386,7 +401,7 @@
 
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js"></script>
-    <script src="js/game.js?v=cidi25"></script>
+    <script src="js/game.js?v=cidi26"></script>
         
 
 

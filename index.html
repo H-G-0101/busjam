@@ -243,7 +243,8 @@
     </div>
     <script>
     (function(){
-        var modal,titleEl,subEl,priceEl,freeEl,hintEl,buyEl,freeBtn,curType=null,curFree="",curMode="booster",busy=false;
+        var modal,titleEl,subEl,priceEl,freeEl,hintEl,buyEl,freeBtn,curType=null,curFree="",curMode="booster",busy=false,openedAt=0;
+        function justOpened(){ return Date.now()-openedAt < 350; }
         function $(id){ return document.getElementById(id); }
         function init(){
             modal=$("boosterModal"); titleEl=$("bmTitle"); subEl=$("bmSub"); priceEl=$("bmPrice");
@@ -256,12 +257,12 @@
         function hide(){ if(modal) modal.style.display="none"; }
         function shakeBuy(){ buyEl.classList.add("shake"); setTimeout(function(){ buyEl.classList.remove("shake"); },430); }
         function onClose(){
-            if(busy) return; hide();
+            if(busy||justOpened()) return; hide();
             if(curMode==="spot"){ if(window.__bjSpotClose) window.__bjSpotClose(); }
             else { if(window.__bjBoosterClose) window.__bjBoosterClose(); }
         }
         function onBuy(){
-            if(busy) return; var price=parseInt(priceEl.textContent)||0;
+            if(busy||justOpened()) return; var price=parseInt(priceEl.textContent)||0;
             if(curMode==="spot"){
                 if(window.__bjSpotPay) window.__bjSpotPay(price, function(ok){ if(ok){hide();} else {shakeBuy();} });
             } else if(window.__bjBoosterPay){
@@ -269,7 +270,7 @@
             }
         }
         function onFree(){
-            if(busy) return; busy=true; freeEl.textContent="...";
+            if(busy||justOpened()) return; busy=true; freeEl.textContent="...";
             function done(ok){ busy=false; freeEl.textContent=curFree; hide(); }
             if(curMode==="spot"){ if(window.__bjSpotAd) window.__bjSpotAd(done); else done(false); }
             else if(window.__bjBoosterAdRun){ window.__bjBoosterAdRun(curType, done); }
@@ -289,13 +290,13 @@
             if(!modal) return; busy=false; curMode="booster"; curType=type;
             fill(title,desc,price,freeLbl,hint);
             buyEl.style.display=""; setCentral(type);
-            modal.style.display="flex";
+            modal.style.display="flex"; openedAt=Date.now();
         };
         window.__bjShowSpotModal=function(price,title,desc,freeLbl,hint){
             if(!modal) return; busy=false; curMode="spot"; curType="newspot";
             fill(title,desc,price,freeLbl,hint);
             buyEl.style.display="none"; setCentral("newspot");
-            modal.style.display="flex";
+            modal.style.display="flex"; openedAt=Date.now();
         };
         if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded",init);
     })();
@@ -309,7 +310,8 @@
             { coins:700,  ads:4 },
             { coins:1500, ads:8 }
         ];
-        var modal, list, balEl, loadEl, loadTxt, busy=false;
+        var modal, list, balEl, loadEl, loadTxt, busy=false, fcOpenedAt=0;
+        function fcJustOpened(){ return Date.now()-fcOpenedAt < 350; }
 
         function adLabel(n){ return n+" AD"+(n>1?"S":""); }
         function refreshBal(){ if(balEl) balEl.textContent = (window.PlayerCash|0); }
@@ -317,7 +319,7 @@
         function hideLoad(){ if(loadEl) loadEl.style.display="none"; }
 
         function buyPack(pack, btn){
-            if(busy) return; busy=true;
+            if(busy||fcJustOpened()) return; busy=true;
             if(btn) btn.disabled=true;
             var watched=0;
             function step(){
@@ -366,8 +368,8 @@
             if(close) close.addEventListener("click", window.__bjHideFreeCoins);
             if(modal) modal.addEventListener("click", function(e){ if(e.target===modal) window.__bjHideFreeCoins(); });
         }
-        window.__bjShowFreeCoins=function(){ if(!modal) return; refreshBal(); modal.style.display="flex"; };
-        window.__bjHideFreeCoins=function(){ if(busy) return; if(modal) modal.style.display="none"; };
+        window.__bjShowFreeCoins=function(){ if(!modal) return; refreshBal(); modal.style.display="flex"; fcOpenedAt=Date.now(); };
+        window.__bjHideFreeCoins=function(){ if(busy||fcJustOpened()) return; if(modal) modal.style.display="none"; };
         if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded",init);
     })();
     </script>

@@ -85,9 +85,30 @@
 }
 },
 {
-"filename": "btn_amarelo.png",
+"filename": "ad_unlock.png",
 "frame": {
 "x": 2,
+"y": 2724,
+"w": 256,
+"h": 256
+},
+"rotated": false,
+"trimmed": false,
+"spriteSourceSize": {
+"x": 0,
+"y": 0,
+"w": 256,
+"h": 256
+},
+"sourceSize": {
+"w": 256,
+"h": 256
+}
+},
+{
+"filename": "btn_amarelo.png",
+"frame": {
+"x": 260,
 "y": 2724,
 "w": 447,
 "h": 165
@@ -108,7 +129,7 @@
 {
 "filename": "btn_play_ad.png",
 "frame": {
-"x": 451,
+"x": 709,
 "y": 2724,
 "w": 109,
 "h": 128
@@ -129,8 +150,8 @@
 {
 "filename": "txt_mais300.png",
 "frame": {
-"x": 562,
-"y": 2724,
+"x": 2,
+"y": 2982,
 "w": 316,
 "h": 126
 },
@@ -150,8 +171,8 @@
 {
 "filename": "pill_titulo.png",
 "frame": {
-"x": 2,
-"y": 2891,
+"x": 320,
+"y": 2982,
 "w": 522,
 "h": 115
 },
@@ -171,8 +192,8 @@
 {
 "filename": "btn_verde.png",
 "frame": {
-"x": 526,
-"y": 2891,
+"x": 844,
+"y": 2982,
 "w": 114,
 "h": 111
 },
@@ -193,7 +214,7 @@
 "filename": "strip_multiplicador.png",
 "frame": {
 "x": 2,
-"y": 3008,
+"y": 3110,
 "w": 560,
 "h": 108
 },
@@ -214,7 +235,7 @@
 "filename": "barra_navy_grossa.png",
 "frame": {
 "x": 564,
-"y": 3008,
+"y": 3110,
 "w": 407,
 "h": 101
 },
@@ -235,7 +256,7 @@
 "filename": "barra_navy_fina.png",
 "frame": {
 "x": 2,
-"y": 3118,
+"y": 3220,
 "w": 526,
 "h": 97
 },
@@ -256,7 +277,7 @@
 "filename": "badge_ad.png",
 "frame": {
 "x": 530,
-"y": 3118,
+"y": 3220,
 "w": 132,
 "h": 83
 },
@@ -277,7 +298,7 @@
 "filename": "estrela2.png",
 "frame": {
 "x": 664,
-"y": 3118,
+"y": 3220,
 "w": 73,
 "h": 78
 },
@@ -298,7 +319,7 @@
 "filename": "estrela3.png",
 "frame": {
 "x": 739,
-"y": 3118,
+"y": 3220,
 "w": 60,
 "h": 62
 },
@@ -319,7 +340,7 @@
 "filename": "txt_continuar.png",
 "frame": {
 "x": 2,
-"y": 3217,
+"y": 3319,
 "w": 361,
 "h": 62
 },
@@ -340,7 +361,7 @@
 "filename": "estrela1.png",
 "frame": {
 "x": 365,
-"y": 3217,
+"y": 3319,
 "w": 61,
 "h": 59
 },
@@ -361,7 +382,7 @@
 "filename": "pointer_tri.png",
 "frame": {
 "x": 428,
-"y": 3217,
+"y": 3319,
 "w": 72,
 "h": 56
 },
@@ -382,7 +403,7 @@
 "filename": "pointer_tri_dark.png",
 "frame": {
 "x": 502,
-"y": 3217,
+"y": 3319,
 "w": 64,
 "h": 52
 },
@@ -407,7 +428,7 @@
 "format": "RGBA8888",
 "size": {
 "w": 1100,
-"h": 3284
+"h": 3384
 },
 "scale": "1"
 }

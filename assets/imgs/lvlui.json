@@ -173,26 +173,26 @@
 "frame": {
 "x": 2,
 "y": 2302,
-"w": 526,
-"h": 110
+"w": 560,
+"h": 108
 },
 "rotated": false,
 "trimmed": false,
 "spriteSourceSize": {
 "x": 0,
 "y": 0,
-"w": 526,
-"h": 110
+"w": 560,
+"h": 108
 },
 "sourceSize": {
-"w": 526,
-"h": 110
+"w": 560,
+"h": 108
 }
 },
 {
 "filename": "barra_navy_grossa.png",
 "frame": {
-"x": 530,
+"x": 564,
 "y": 2302,
 "w": 407,
 "h": 101
@@ -214,7 +214,7 @@
 "filename": "barra_navy_fina.png",
 "frame": {
 "x": 2,
-"y": 2414,
+"y": 2412,
 "w": 526,
 "h": 97
 },
@@ -235,7 +235,7 @@
 "filename": "badge_ad.png",
 "frame": {
 "x": 530,
-"y": 2414,
+"y": 2412,
 "w": 132,
 "h": 83
 },
@@ -256,7 +256,7 @@
 "filename": "estrela2.png",
 "frame": {
 "x": 664,
-"y": 2414,
+"y": 2412,
 "w": 73,
 "h": 78
 },
@@ -277,7 +277,7 @@
 "filename": "estrela3.png",
 "frame": {
 "x": 739,
-"y": 2414,
+"y": 2412,
 "w": 60,
 "h": 62
 },
@@ -298,7 +298,7 @@
 "filename": "txt_continuar.png",
 "frame": {
 "x": 2,
-"y": 2513,
+"y": 2511,
 "w": 361,
 "h": 62
 },
@@ -319,7 +319,7 @@
 "filename": "estrela1.png",
 "frame": {
 "x": 365,
-"y": 2513,
+"y": 2511,
 "w": 61,
 "h": 59
 },
@@ -340,7 +340,7 @@
 "filename": "pointer_tri.png",
 "frame": {
 "x": 428,
-"y": 2513,
+"y": 2511,
 "w": 72,
 "h": 56
 },
@@ -365,7 +365,7 @@
 "format": "RGBA8888",
 "size": {
 "w": 1100,
-"h": 2580
+"h": 2576
 },
 "scale": "1"
 }

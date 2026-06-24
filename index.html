@@ -342,29 +342,26 @@
         function buyPack(pack, btn){
             if(busy||fcJustOpened()) return; busy=true;
             if(btn) btn.disabled=true;
-            var watched=0;
-            function step(){
-                if(watched>=pack.ads){            /* todos os anuncios vistos -> credita */
-                    if(window.__bjAddCoins) window.__bjAddCoins(pack.coins);
-                    refreshBal(); hideLoad(); busy=false; resetBtn(btn, pack);
-                    return;
-                }
-                showLoad("Loading ad "+(watched+1)+"/"+pack.ads);
-                var t0=Date.now();
-                if(window.__bjWatchAd){
-                    window.__bjWatchAd(function(ok){
-                        /* garante o overlay visivel por ~1s (sensacao de anuncio) */
-                        var wait=Math.max(0, 1000-(Date.now()-t0));
-                        setTimeout(function(){
-                            if(ok){ watched++; step(); }
-                            else { hideLoad(); busy=false; resetBtn(btn, pack); }  /* desistiu: nao credita */
-                        }, wait);
-                    });
-                } else { hideLoad(); busy=false; resetBtn(btn, pack); }
-            }
-            step();
+            if(typeof pack._watched!=="number") pack._watched=0;
+            showLoad("Loading ad "+(pack._watched+1)+"/"+pack.ads);
+            var t0=Date.now();
+            if(window.__bjWatchAd){
+                window.__bjWatchAd(function(ok){
+                    var wait=Math.max(0, 1000-(Date.now()-t0));
+                    setTimeout(function(){
+                        if(ok){
+                            pack._watched++;
+                            if(pack._watched>=pack.ads){
+                                if(window.__bjAddCoins) window.__bjAddCoins(pack.coins);
+                                refreshBal(); pack._watched=0;
+                            }
+                        }
+                        hideLoad(); busy=false; updateBtn(btn, pack);
+                    }, wait);
+                });
+            } else { hideLoad(); busy=false; updateBtn(btn, pack); }
         }
-        function resetBtn(btn, pack){ if(btn){ btn.disabled=false; btn.innerHTML='<span class="ad">AD</span> '+adLabel(pack.ads); } }
+        function updateBtn(btn, pack){ if(btn){ btn.disabled=false; btn.innerHTML='<span class="ad">AD</span> '+((pack._watched>0)?(pack._watched+"/"+pack.ads):adLabel(pack.ads)); } }
 
         function build(){
             if(!list) return; list.innerHTML="";
@@ -373,7 +370,7 @@
                 var info=document.createElement("div"); info.className="pk-coins";
                 info.innerHTML='<div class="pk-pile">'+coinStack(idx+1)+'</div><div class="pk-amt">'+pack.coins+'</div>';
                 var btn=document.createElement("button"); btn.className="sh-btn";
-                btn.innerHTML='<span class="ad">AD</span> '+adLabel(pack.ads);
+                updateBtn(btn, pack);
                 btn.addEventListener("click", function(){ buyPack(pack, btn); });
                 row.appendChild(info); row.appendChild(btn); list.appendChild(row);
             });

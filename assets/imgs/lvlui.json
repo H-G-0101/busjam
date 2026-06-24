@@ -314,6 +314,27 @@
 "w": 61,
 "h": 59
 }
+},
+{
+"filename": "pointer_tri.png",
+"frame": {
+"x": 428,
+"y": 1265,
+"w": 72,
+"h": 56
+},
+"rotated": false,
+"trimmed": false,
+"spriteSourceSize": {
+"x": 0,
+"y": 0,
+"w": 72,
+"h": 56
+},
+"sourceSize": {
+"w": 72,
+"h": 56
+}
 }
 ],
 "meta": {

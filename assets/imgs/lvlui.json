@@ -4,28 +4,28 @@
 "filename": "painel.png",
 "frame": {
 "x": 2,
-"y": 4,
-"w": 1122,
-"h": 1402
+"y": 2,
+"w": 918,
+"h": 1344
 },
 "rotated": false,
 "trimmed": false,
 "spriteSourceSize": {
 "x": 0,
 "y": 0,
-"w": 1122,
-"h": 1402
+"w": 918,
+"h": 1344
 },
 "sourceSize": {
-"w": 1122,
-"h": 1402
+"w": 918,
+"h": 1344
 }
 },
 {
 "filename": "coin_centro.png",
 "frame": {
 "x": 2,
-"y": 1408,
+"y": 1348,
 "w": 584,
 "h": 608
 },
@@ -46,7 +46,7 @@
 "filename": "coin_mais300.png",
 "frame": {
 "x": 588,
-"y": 1408,
+"y": 1348,
 "w": 322,
 "h": 306
 },
@@ -67,7 +67,7 @@
 "filename": "btn_amarelo.png",
 "frame": {
 "x": 2,
-"y": 2018,
+"y": 1958,
 "w": 447,
 "h": 165
 },
@@ -88,7 +88,7 @@
 "filename": "btn_play_ad.png",
 "frame": {
 "x": 451,
-"y": 2018,
+"y": 1958,
 "w": 109,
 "h": 128
 },
@@ -109,7 +109,7 @@
 "filename": "txt_mais300.png",
 "frame": {
 "x": 562,
-"y": 2018,
+"y": 1958,
 "w": 316,
 "h": 126
 },
@@ -130,7 +130,7 @@
 "filename": "pill_titulo.png",
 "frame": {
 "x": 2,
-"y": 2185,
+"y": 2125,
 "w": 522,
 "h": 115
 },
@@ -151,7 +151,7 @@
 "filename": "btn_verde.png",
 "frame": {
 "x": 526,
-"y": 2185,
+"y": 2125,
 "w": 114,
 "h": 111
 },
@@ -172,7 +172,7 @@
 "filename": "strip_multiplicador.png",
 "frame": {
 "x": 2,
-"y": 2302,
+"y": 2242,
 "w": 560,
 "h": 108
 },
@@ -193,7 +193,7 @@
 "filename": "barra_navy_grossa.png",
 "frame": {
 "x": 564,
-"y": 2302,
+"y": 2242,
 "w": 407,
 "h": 101
 },
@@ -214,7 +214,7 @@
 "filename": "barra_navy_fina.png",
 "frame": {
 "x": 2,
-"y": 2412,
+"y": 2352,
 "w": 526,
 "h": 97
 },
@@ -235,7 +235,7 @@
 "filename": "badge_ad.png",
 "frame": {
 "x": 530,
-"y": 2412,
+"y": 2352,
 "w": 132,
 "h": 83
 },
@@ -256,7 +256,7 @@
 "filename": "estrela2.png",
 "frame": {
 "x": 664,
-"y": 2412,
+"y": 2352,
 "w": 73,
 "h": 78
 },
@@ -277,7 +277,7 @@
 "filename": "estrela3.png",
 "frame": {
 "x": 739,
-"y": 2412,
+"y": 2352,
 "w": 60,
 "h": 62
 },
@@ -298,7 +298,7 @@
 "filename": "txt_continuar.png",
 "frame": {
 "x": 2,
-"y": 2511,
+"y": 2451,
 "w": 361,
 "h": 62
 },
@@ -319,7 +319,7 @@
 "filename": "estrela1.png",
 "frame": {
 "x": 365,
-"y": 2511,
+"y": 2451,
 "w": 61,
 "h": 59
 },
@@ -340,7 +340,7 @@
 "filename": "pointer_tri.png",
 "frame": {
 "x": 428,
-"y": 2511,
+"y": 2451,
 "w": 72,
 "h": 56
 },
@@ -361,7 +361,7 @@
 "filename": "pointer_tri_dark.png",
 "frame": {
 "x": 502,
-"y": 2511,
+"y": 2451,
 "w": 64,
 "h": 52
 },
@@ -386,7 +386,7 @@
 "format": "RGBA8888",
 "size": {
 "w": 1100,
-"h": 2576
+"h": 2516
 },
 "scale": "1"
 }

@@ -356,6 +356,27 @@
 "w": 72,
 "h": 56
 }
+},
+{
+"filename": "pointer_tri_dark.png",
+"frame": {
+"x": 502,
+"y": 2511,
+"w": 64,
+"h": 52
+},
+"rotated": false,
+"trimmed": false,
+"spriteSourceSize": {
+"x": 0,
+"y": 0,
+"w": 64,
+"h": 52
+},
+"sourceSize": {
+"w": 64,
+"h": 52
+}
 }
 ],
 "meta": {

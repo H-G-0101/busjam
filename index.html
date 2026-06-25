@@ -912,99 +912,102 @@
 })();
 </script>
 
-<!-- ===== Modal Booster NOVO (shuffle/sort) - design dedicado ===== -->
+
+
+<!-- ===== Modais Booster ISOLADOS (shuffle / sort) ===== -->
 <style>
-  @keyframes b2Pop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
-  @keyframes b2Pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
-  @keyframes b2Gleam{0%{transform:translateX(-140%) skewX(-18deg)}60%,100%{transform:translateX(360%) skewX(-18deg)}}
-  @keyframes b2Spin{0%,100%{transform:translateX(-50%) rotate(0deg)}50%{transform:translateX(-50%) rotate(180deg)}}
-  #boosterModal2.shake .b2-card{ animation:b2shk .42s; }
-  @keyframes b2shk{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+  @keyframes bbPop{0%{transform:scale(.7);opacity:0}100%{transform:scale(1);opacity:1}}
+  @keyframes bbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+  @keyframes bbGleam{0%{transform:translateX(-140%) skewX(-18deg)}60%,100%{transform:translateX(360%) skewX(-18deg)}}
+  @keyframes bbSpin{0%,100%{transform:translateX(-50%) rotate(0deg)}50%{transform:translateX(-50%) rotate(180deg)}}
+  .bb-ov{ display:none; position:fixed; inset:0; z-index:2200; background:rgba(6,20,44,.55); align-items:center; justify-content:center; font-family:'Nunito',sans-serif; }
+  .bb-card{ position:relative; width:min(330px,88vw); border-radius:30px; padding:0 0 20px; overflow:visible; animation:bbPop .3s cubic-bezier(.2,1.3,.5,1) both; background:linear-gradient(180deg,#69BEFF 0%,#3A92EC 48%,#2374DA 100%); border:4px solid #CDE8FF; box-shadow:0 22px 50px rgba(15,60,130,.55), inset 0 3px 0 rgba(255,255,255,.55); }
+  .bb-card.bshk{ animation:bbshk .42s; }
+  @keyframes bbshk{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+  .bb-glare{ position:absolute; top:0; left:0; right:0; height:50px; border-radius:26px 26px 0 0; background:linear-gradient(180deg,rgba(255,255,255,.4),transparent); pointer-events:none; }
+  .bb-titlebar{ position:relative; text-align:center; margin:14px 16px 0; padding:12px 16px; border-radius:18px; background:linear-gradient(180deg,#4FA0F0,#2E7FDC); border:3px solid #CDE8FF; box-shadow:0 4px 0 #1B5BA8, inset 0 2px 0 rgba(255,255,255,.4); }
+  .bb-titlebar span{ font-family:'Baloo 2',sans-serif; font-size:30px; font-weight:800; color:#fff; letter-spacing:2px; -webkit-text-stroke:3px #1B5BA8; paint-order:stroke fill; text-shadow:0 3px 0 rgba(20,60,120,.4); }
+  .bb-x{ position:absolute; top:-10px; right:-10px; width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; color:#fff; cursor:pointer; z-index:5; background:linear-gradient(180deg,#FF6A5A,#E0392A); border:4px solid #fff; box-shadow:0 5px 10px rgba(0,0,0,.35), inset 0 2px 0 rgba(255,255,255,.4); }
+  .bb-art{ position:relative; margin:16px 16px 0; height:200px; border-radius:22px; overflow:hidden; background:linear-gradient(180deg,#BFE4FB,#9CCFF3); box-shadow:inset 0 3px 8px rgba(20,70,130,.25), inset 0 2px 0 rgba(255,255,255,.5); }
+  .bb-bub{ position:absolute; inset:0; pointer-events:none; opacity:.5; background:radial-gradient(circle at 16% 24%, rgba(255,255,255,.55) 0 7px, transparent 8px), radial-gradient(circle at 82% 20%, rgba(255,255,255,.45) 0 5px, transparent 6px), radial-gradient(circle at 70% 78%, rgba(255,255,255,.4) 0 9px, transparent 10px), radial-gradient(circle at 26% 84%, rgba(255,255,255,.4) 0 6px, transparent 7px); }
+  .bb-cap{ text-align:center; padding:16px 24px 4px; font-family:'Baloo 2',sans-serif; font-size:17px; font-weight:800; line-height:1.25; color:#fff; text-transform:uppercase; -webkit-text-stroke:2px #1B5BA8; paint-order:stroke fill; text-shadow:0 2px 2px rgba(20,60,120,.35); }
+  .bb-btns{ display:flex; gap:13px; padding:14px 18px 0; }
+  .bb-buy{ position:relative; flex:1; border-radius:20px; cursor:pointer; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:8px; padding:15px 0; background:linear-gradient(180deg,#FFD96E,#F2A300); border:4px solid #fff; box-shadow:0 7px 0 #C57E00, 0 11px 16px rgba(8,40,90,.35), inset 0 2px 0 rgba(255,255,255,.5); }
+  .bb-buy .c{ position:relative; width:30px; height:30px; border-radius:50%; background:radial-gradient(circle at 38% 30%,#FFF7C8,#F2B100 72%); box-shadow:inset 0 0 0 4px #E0982A, inset 0 -3px 4px rgba(180,110,0,.4); }
+  .bb-buy span{ position:relative; font-family:'Baloo 2',sans-serif; font-size:27px; font-weight:800; color:#fff; -webkit-text-stroke:3px #B5740E; paint-order:stroke fill; text-shadow:0 3px 0 rgba(150,90,0,.35); }
+  .bb-free{ position:relative; flex:1; border-radius:20px; cursor:pointer; overflow:visible; animation:bbPulse 1.8s ease-in-out infinite; }
+  .bb-free .inner{ position:relative; border-radius:20px; overflow:hidden; display:flex; align-items:center; justify-content:center; padding:15px 0; background:linear-gradient(180deg,#5FE070,#2EA13A); border:4px solid #fff; box-shadow:0 7px 0 #1F7A29, 0 11px 16px rgba(8,40,90,.35), inset 0 2px 0 rgba(255,255,255,.5); }
+  .bb-free .inner span.lbl{ position:relative; font-family:'Baloo 2',sans-serif; font-size:27px; font-weight:800; letter-spacing:1px; color:#fff; -webkit-text-stroke:3px #1F7A29; paint-order:stroke fill; text-shadow:0 3px 0 rgba(20,80,30,.35); }
+  .bb-free .glr{ position:absolute; top:0; left:0; width:40%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent); animation:bbGleam 3s ease-in-out infinite; }
+  .bb-adbadge{ position:absolute; top:-12px; right:-8px; width:42px; height:42px; border-radius:11px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#FF6A5A,#E0392A); border:3px solid #fff; box-shadow:0 3px 7px rgba(0,0,0,.4), inset 0 2px 0 rgba(255,255,255,.4); }
 </style>
-<div id="boosterModal2" style="display:none; position:fixed; inset:0; z-index:2100; background:rgba(6,20,44,.55); align-items:center; justify-content:center; font-family:'Nunito',sans-serif;">
-  <div class="b2-card" style="position:relative; width:min(330px,88vw); border-radius:30px; padding:0 0 20px; overflow:visible; animation:b2Pop .3s cubic-bezier(.2,1.3,.5,1) both;
-       background:linear-gradient(180deg,#69BEFF 0%,#3A92EC 48%,#2374DA 100%); border:4px solid #CDE8FF; box-shadow:0 22px 50px rgba(15,60,130,.55), inset 0 3px 0 rgba(255,255,255,.55);">
-    <div style="position:absolute; top:0; left:0; right:0; height:50px; border-radius:26px 26px 0 0; background:linear-gradient(180deg,rgba(255,255,255,.4),transparent); pointer-events:none;"></div>
-    <!-- title bar -->
-    <div style="position:relative; text-align:center; margin:14px 16px 0; padding:12px 16px; border-radius:18px; background:linear-gradient(180deg,#4FA0F0,#2E7FDC); border:3px solid #CDE8FF; box-shadow:0 4px 0 #1B5BA8, inset 0 2px 0 rgba(255,255,255,.4);">
-      <span id="b2Title" style="font-family:'Baloo 2',sans-serif; font-size:30px; font-weight:800; color:#fff; letter-spacing:2px; -webkit-text-stroke:3px #1B5BA8; paint-order:stroke fill; text-shadow:0 3px 0 rgba(20,60,120,.4);">EMBARALHAR</span>
+
+<!-- SHUFFLE -->
+<div id="mShuffle" class="bb-ov">
+  <div class="bb-card">
+    <div class="bb-glare"></div>
+    <div class="bb-titlebar"><span id="mShuffleTitle">EMBARALHAR</span></div>
+    <div class="bb-x" id="mShuffleX">&#10005;</div>
+    <div class="bb-art">
+      <div class="bb-bub"></div>
+      <svg width="84" height="76" viewBox="0 0 100 92" style="position:absolute; top:18px; left:50%; transform:translateX(-50%); z-index:2; filter:drop-shadow(0 3px 3px rgba(0,40,90,.4)); animation:bbSpin 3s ease-in-out infinite;">
+        <defs><marker id="mShAh" markerWidth="3.4" markerHeight="3.4" refX="1.05" refY="1.7" orient="auto" markerUnits="strokeWidth"><path d="M0.2,0.2 L3.4,1.7 L0.2,3.2 L1.2,1.7 Z" fill="#fff"/></marker></defs>
+        <g fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round"><path d="M66 20 A30 30 0 0 1 66 72" marker-end="url(#mShAh)"/><path d="M34 72 A30 30 0 0 1 34 20" marker-end="url(#mShAh)"/></g>
+      </svg>
+      <img src="assets/imgs/shop/bus_modal.png" alt="" style="position:absolute; bottom:14px; left:50%; transform:translateX(-50%); width:155px; z-index:1; filter:drop-shadow(0 8px 8px rgba(0,40,90,.35));">
     </div>
-    <!-- close -->
-    <div id="b2X" style="position:absolute; top:-10px; right:-10px; width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; color:#fff; cursor:pointer; z-index:5; background:linear-gradient(180deg,#FF6A5A,#E0392A); border:4px solid #fff; box-shadow:0 5px 10px rgba(0,0,0,.35), inset 0 2px 0 rgba(255,255,255,.4);">&#10005;</div>
-    <!-- art panel -->
-    <div style="position:relative; margin:16px 16px 0; height:200px; border-radius:22px; overflow:hidden; background:linear-gradient(180deg,#BFE4FB,#9CCFF3); box-shadow:inset 0 3px 8px rgba(20,70,130,.25), inset 0 2px 0 rgba(255,255,255,.5);">
-      <div style="position:absolute; inset:0; pointer-events:none; opacity:.5; background:radial-gradient(circle at 16% 24%, rgba(255,255,255,.55) 0 7px, transparent 8px), radial-gradient(circle at 82% 20%, rgba(255,255,255,.45) 0 5px, transparent 6px), radial-gradient(circle at 70% 78%, rgba(255,255,255,.4) 0 9px, transparent 10px), radial-gradient(circle at 26% 84%, rgba(255,255,255,.4) 0 6px, transparent 7px);"></div>
-      <!-- shuffle art -->
-      <div id="b2Shuffle" style="position:absolute; inset:0;">
-        <svg width="84" height="76" viewBox="0 0 100 92" style="position:absolute; top:18px; left:50%; transform:translateX(-50%); z-index:2; filter:drop-shadow(0 3px 3px rgba(0,40,90,.4)); animation:b2Spin 3s ease-in-out infinite;">
-          <defs><marker id="b2Ah" markerWidth="3.4" markerHeight="3.4" refX="1.05" refY="1.7" orient="auto" markerUnits="strokeWidth"><path d="M0.2,0.2 L3.4,1.7 L0.2,3.2 L1.2,1.7 Z" fill="#fff"/></marker></defs>
-          <g fill="none" stroke="#fff" stroke-width="13" stroke-linecap="round"><path d="M66 20 A30 30 0 0 1 66 72" marker-end="url(#b2Ah)"/><path d="M34 72 A30 30 0 0 1 34 20" marker-end="url(#b2Ah)"/></g>
-        </svg>
-        <img src="assets/imgs/shop/bus_modal.png" alt="" style="position:absolute; bottom:14px; left:50%; transform:translateX(-50%); width:155px; z-index:1; filter:drop-shadow(0 8px 8px rgba(0,40,90,.35));">
-      </div>
-      <!-- sort art -->
-      <div id="b2Sort" style="position:absolute; inset:0; display:none;">
-        <div style="position:absolute; left:0; right:0; bottom:6px; display:flex; align-items:flex-end; justify-content:center; transform:scale(.8); transform-origin:bottom center;">
-          <div style="position:relative; width:42px; margin-right:-14px; filter:drop-shadow(0 8px 6px rgba(10,40,90,.28)); z-index:1;"><div style="position:absolute; left:50%; bottom:-9px; transform:translateX(-50%); width:36px; height:11px; background:rgba(10,40,90,.22); border-radius:50%; filter:blur(2px);"></div><div style="width:21px; height:21px; margin:0 auto -5px; border-radius:50%; background:radial-gradient(circle at 36% 28%,#FFB3DE,#E84FA8 78%); box-shadow:inset -3px -3px 0 rgba(150,30,95,.35); position:relative; z-index:2;"></div><div style="width:38px; height:64px; margin:0 auto; border-radius:18px 18px 13px 13px; background:linear-gradient(105deg,#FF9BD3 38%,#E84FA8 70%,#C73B8C 100%); box-shadow:inset -5px 0 0 rgba(150,30,95,.28), inset 4px 3px 0 rgba(255,255,255,.3);"></div></div>
-          <div style="position:relative; width:48px; margin-right:-16px; filter:drop-shadow(0 9px 7px rgba(10,40,90,.3)); z-index:2;"><div style="position:absolute; left:50%; bottom:-10px; transform:translateX(-50%); width:42px; height:12px; background:rgba(10,40,90,.24); border-radius:50%; filter:blur(2px);"></div><div style="width:25px; height:25px; margin:0 auto -6px; border-radius:50%; background:radial-gradient(circle at 36% 28%,#A9F0F8,#2EC6D8 78%); box-shadow:inset -3px -3px 0 rgba(15,120,135,.35); position:relative; z-index:2;"></div><div style="width:42px; height:88px; margin:0 auto; border-radius:21px 21px 14px 14px; background:linear-gradient(105deg,#7FE8F4 38%,#2EC6D8 70%,#1A9FB0 100%); box-shadow:inset -6px 0 0 rgba(15,120,135,.28), inset 5px 3px 0 rgba(255,255,255,.32);"></div></div>
-          <div style="position:relative; width:56px; margin-right:-18px; filter:drop-shadow(0 10px 8px rgba(10,40,90,.32)); z-index:3;"><div style="position:absolute; left:50%; bottom:-11px; transform:translateX(-50%); width:48px; height:13px; background:rgba(10,40,90,.26); border-radius:50%; filter:blur(2px);"></div><div style="width:29px; height:29px; margin:0 auto -7px; border-radius:50%; background:radial-gradient(circle at 36% 28%,#FFF0A8,#F2C200 78%); box-shadow:inset -4px -4px 0 rgba(170,125,0,.35); position:relative; z-index:2;"></div><div style="width:50px; height:112px; margin:0 auto; border-radius:24px 24px 15px 15px; background:linear-gradient(105deg,#FFE680 38%,#F2C200 70%,#D19E00 100%); box-shadow:inset -7px 0 0 rgba(170,125,0,.28), inset 6px 3px 0 rgba(255,255,255,.34);"></div></div>
-          <div style="position:relative; width:66px; filter:drop-shadow(0 12px 10px rgba(10,40,90,.36)); z-index:4;"><div style="position:absolute; left:50%; bottom:-12px; transform:translateX(-50%); width:58px; height:15px; background:rgba(10,40,90,.3); border-radius:50%; filter:blur(2px);"></div><div style="position:absolute; right:0; top:14px; width:15px; height:58px; border-radius:9px; background:linear-gradient(180deg,#FF8273,#E8412C); box-shadow:inset -3px 0 0 rgba(150,40,25,.3); transform:rotate(24deg); transform-origin:bottom; z-index:1;"></div><div style="width:37px; height:37px; margin:0 auto -8px; border-radius:50%; background:radial-gradient(circle at 36% 28%,#FFA89B,#E8412C 78%); box-shadow:inset -4px -4px 0 rgba(150,40,25,.35); position:relative; z-index:3;"></div><div style="width:60px; height:140px; margin:0 auto; border-radius:28px 28px 16px 16px; background:linear-gradient(105deg,#FF9384 38%,#E8412C 70%,#C5311E 100%); box-shadow:inset -8px 0 0 rgba(150,40,25,.28), inset 7px 4px 0 rgba(255,255,255,.34); position:relative; z-index:2;"></div></div>
-        </div>
-        <div style="position:absolute; left:14px; top:14px; z-index:6; filter:drop-shadow(0 3px 3px rgba(0,40,90,.4));"><svg width="64" height="58" viewBox="0 0 86 78"><path d="M40 6 L58 24 L48 24 L48 42 L32 42 L32 24 L22 24 Z" fill="#fff" stroke="#1B3A6E" stroke-width="3" stroke-linejoin="round"/><path d="M30 72 L12 54 L22 54 L22 36 L38 36 L38 54 L48 54 Z" fill="#fff" stroke="#1B3A6E" stroke-width="3" stroke-linejoin="round"/></svg></div>
-      </div>
-    </div>
-    <!-- caption -->
-    <div id="b2Caption" style="text-align:center; padding:16px 24px 4px; font-family:'Baloo 2',sans-serif; font-size:17px; font-weight:800; line-height:1.25; color:#fff; text-transform:uppercase; -webkit-text-stroke:2px #1B5BA8; paint-order:stroke fill; text-shadow:0 2px 2px rgba(20,60,120,.35);"></div>
-    <!-- buttons -->
-    <div style="display:flex; gap:13px; padding:14px 18px 0;">
-      <div id="b2Buy" style="position:relative; flex:1; border-radius:20px; cursor:pointer; overflow:hidden; display:flex; align-items:center; justify-content:center; gap:8px; padding:15px 0; background:linear-gradient(180deg,#FFD96E,#F2A300); border:4px solid #fff; box-shadow:0 7px 0 #C57E00, 0 11px 16px rgba(8,40,90,.35), inset 0 2px 0 rgba(255,255,255,.5);">
-        <div style="position:absolute; top:4px; left:14px; right:14px; height:16px; border-radius:12px; background:linear-gradient(180deg,rgba(255,255,255,.55),transparent); pointer-events:none;"></div>
-        <div style="position:relative; width:30px; height:30px; border-radius:50%; background:radial-gradient(circle at 38% 30%,#FFF7C8,#F2B100 72%); box-shadow:inset 0 0 0 4px #E0982A, inset 0 -3px 4px rgba(180,110,0,.4);"></div>
-        <span id="b2Price" style="position:relative; font-family:'Baloo 2',sans-serif; font-size:27px; font-weight:800; color:#fff; -webkit-text-stroke:3px #B5740E; paint-order:stroke fill; text-shadow:0 3px 0 rgba(150,90,0,.35);">500</span>
-      </div>
-      <div id="b2Free" style="position:relative; flex:1; border-radius:20px; cursor:pointer; overflow:visible; animation:b2Pulse 1.8s ease-in-out infinite;">
-        <div style="position:relative; border-radius:20px; overflow:hidden; display:flex; align-items:center; justify-content:center; padding:15px 0; background:linear-gradient(180deg,#5FE070,#2EA13A); border:4px solid #fff; box-shadow:0 7px 0 #1F7A29, 0 11px 16px rgba(8,40,90,.35), inset 0 2px 0 rgba(255,255,255,.5);">
-          <div style="position:absolute; top:4px; left:14px; right:14px; height:16px; border-radius:12px; background:linear-gradient(180deg,rgba(255,255,255,.55),transparent); pointer-events:none;"></div>
-          <span id="b2FreeLbl" style="position:relative; font-family:'Baloo 2',sans-serif; font-size:27px; font-weight:800; letter-spacing:1px; color:#fff; -webkit-text-stroke:3px #1F7A29; paint-order:stroke fill; text-shadow:0 3px 0 rgba(20,80,30,.35);">GRÁTIS</span>
-          <span style="position:absolute; top:0; left:0; width:40%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent); animation:b2Gleam 3s ease-in-out infinite;"></span>
-        </div>
-        <div style="position:absolute; top:-12px; right:-8px; width:42px; height:42px; border-radius:11px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#FF6A5A,#E0392A); border:3px solid #fff; box-shadow:0 3px 7px rgba(0,0,0,.4), inset 0 2px 0 rgba(255,255,255,.4);"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M8 5 v14 l11 -7 z" fill="#fff"/></svg></div>
-      </div>
+    <div class="bb-cap" id="mShuffleCap"></div>
+    <div class="bb-btns">
+      <div class="bb-buy" id="mShuffleBuy"><div class="c"></div><span id="mShufflePrice">500</span></div>
+      <div class="bb-free" id="mShuffleFree"><div class="inner"><span class="lbl" id="mShuffleFreeLbl">GRÁTIS</span><span class="glr"></span></div><div class="bb-adbadge"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M8 5 v14 l11 -7 z" fill="#fff"/></svg></div></div>
     </div>
   </div>
 </div>
+
+<!-- SORT -->
+<div id="mSort" class="bb-ov">
+  <div class="bb-card">
+    <div class="bb-glare"></div>
+    <div class="bb-titlebar"><span id="mSortTitle">CLASSIFICAR</span></div>
+    <div class="bb-x" id="mSortX">&#10005;</div>
+    <div class="bb-art">
+      <div class="bb-bub"></div>
+      <div style="position:absolute; left:0; right:0; bottom:6px; display:flex; align-items:flex-end; justify-content:center; transform:scale(.8); transform-origin:bottom center;">
+        <div style="position:relative; width:42px; margin-right:-14px; filter:drop-shadow(0 8px 6px rgba(10,40,90,.28)); z-index:1;"><div style="position:absolute; left:50%; bottom:-9px; transform:translateX(-50%); width:36px; height:11px; background:rgba(10,40,90,.22); border-radius:50%; filter:blur(2px);"></div><div style="width:21px; height:21px; margin:0 auto -5px; border-radius:50%; background:radial-gradient(circle at 36% 28%,#FFB3DE,#E84FA8 78%); box-shadow:inset -3px -3px 0 rgba(150,30,95,.35); position:relative; z-index:2;"></div><div style="width:38px; height:64px; margin:0 auto; border-radius:18px 18px 13px 13px; background:linear-gradient(105deg,#FF9BD3 38%,#E84FA8 70%,#C73B8C 100%); box-shadow:inset -5px 0 0 rgba(150,30,95,.28), inset 4px 3px 0 rgba(255,255,255,.3);"></div></div>
+        <div style="position:relative; width:48px; margin-right:-16px; filter:drop-shadow(0 9px 7px rgba(10,40,90,.3)); z-index:2;"><div style="position:absolute; left:50%; bottom:-10px; transform:translateX(-50%); width:42px; height:12px; background:rgba(10,40,90,.24); border-radius:50%; filter:blur(2px);"></div><div style="width:25px; height:25px; margin:0 auto -6px; border-radius:50%; background:radial-gradient(circle at 36% 28%,#A9F0F8,#2EC6D8 78%); box-shadow:inset -3px -3px 0 rgba(15,120,135,.35); position:relative; z-index:2;"></div><div style="width:42px; height:88px; margin:0 auto; border-radius:21px 21px 14px 14px; background:linear-gradient(105deg,#7FE8F4 38%,#2EC6D8 70%,#1A9FB0 100%); box-shadow:inset -6px 0 0 rgba(15,120,135,.28), inset 5px 3px 0 rgba(255,255,255,.32);"></div></div>
+        <div style="position:relative; width:56px; margin-right:-18px; filter:drop-shadow(0 10px 8px rgba(10,40,90,.32)); z-index:3;"><div style="position:absolute; left:50%; bottom:-11px; transform:translateX(-50%); width:48px; height:13px; background:rgba(10,40,90,.26); border-radius:50%; filter:blur(2px);"></div><div style="width:29px; height:29px; margin:0 auto -7px; border-radius:50%; background:radial-gradient(circle at 36% 28%,#FFF0A8,#F2C200 78%); box-shadow:inset -4px -4px 0 rgba(170,125,0,.35); position:relative; z-index:2;"></div><div style="width:50px; height:112px; margin:0 auto; border-radius:24px 24px 15px 15px; background:linear-gradient(105deg,#FFE680 38%,#F2C200 70%,#D19E00 100%); box-shadow:inset -7px 0 0 rgba(170,125,0,.28), inset 6px 3px 0 rgba(255,255,255,.34);"></div></div>
+        <div style="position:relative; width:66px; filter:drop-shadow(0 12px 10px rgba(10,40,90,.36)); z-index:4;"><div style="position:absolute; left:50%; bottom:-12px; transform:translateX(-50%); width:58px; height:15px; background:rgba(10,40,90,.3); border-radius:50%; filter:blur(2px);"></div><div style="position:absolute; right:0; top:14px; width:15px; height:58px; border-radius:9px; background:linear-gradient(180deg,#FF8273,#E8412C); box-shadow:inset -3px 0 0 rgba(150,40,25,.3); transform:rotate(24deg); transform-origin:bottom; z-index:1;"></div><div style="width:37px; height:37px; margin:0 auto -8px; border-radius:50%; background:radial-gradient(circle at 36% 28%,#FFA89B,#E8412C 78%); box-shadow:inset -4px -4px 0 rgba(150,40,25,.35); position:relative; z-index:3;"></div><div style="width:60px; height:140px; margin:0 auto; border-radius:28px 28px 16px 16px; background:linear-gradient(105deg,#FF9384 38%,#E8412C 70%,#C5311E 100%); box-shadow:inset -8px 0 0 rgba(150,40,25,.28), inset 7px 4px 0 rgba(255,255,255,.34); position:relative; z-index:2;"></div></div>
+      </div>
+      <div style="position:absolute; left:14px; top:14px; z-index:6; filter:drop-shadow(0 3px 3px rgba(0,40,90,.4));"><svg width="64" height="58" viewBox="0 0 86 78"><path d="M40 6 L58 24 L48 24 L48 42 L32 42 L32 24 L22 24 Z" fill="#fff" stroke="#1B3A6E" stroke-width="3" stroke-linejoin="round"/><path d="M30 72 L12 54 L22 54 L22 36 L38 36 L38 54 L48 54 Z" fill="#fff" stroke="#1B3A6E" stroke-width="3" stroke-linejoin="round"/></svg></div>
+    </div>
+    <div class="bb-cap" id="mSortCap"></div>
+    <div class="bb-btns">
+      <div class="bb-buy" id="mSortBuy"><div class="c"></div><span id="mSortPrice">500</span></div>
+      <div class="bb-free" id="mSortFree"><div class="inner"><span class="lbl" id="mSortFreeLbl">GRÁTIS</span><span class="glr"></span></div><div class="bb-adbadge"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M8 5 v14 l11 -7 z" fill="#fff"/></svg></div></div>
+    </div>
+  </div>
+</div>
+
 <script>
 (function(){
   function $(id){return document.getElementById(id);}
-  var modal=$("boosterModal2"), titleEl=$("b2Title"), capEl=$("b2Caption"), priceEl=$("b2Price"), freeLblEl=$("b2FreeLbl");
-  var curType=null, curFree="", busy=false, openedAt=0;
-  function jOpen(){ return Date.now()-openedAt<350; }
-  function hide(){ if(modal)modal.style.display="none"; }
-  function shake(){ if(modal){ modal.classList.add("shake"); setTimeout(function(){modal.classList.remove("shake");},440); } }
-  var _oldShow=window.__bjShowBoosterModal;
+  function wire(prefix,type){
+    var modal=$(prefix), card=modal.querySelector(".bb-card"), buy=$(prefix+"Buy"), free=$(prefix+"Free"), x=$(prefix+"X"), lblEl=$(prefix+"FreeLbl"), priceEl=$(prefix+"Price"), titleEl=$(prefix+"Title"), capEl=$(prefix+"Cap");
+    var busy=false, openedAt=0, curFree="GRÁTIS";
+    function jOpen(){ return Date.now()-openedAt<350; }
+    function hide(){ modal.style.display="none"; }
+    function shake(){ if(card){ card.classList.add("bshk"); setTimeout(function(){card.classList.remove("bshk");},440); } }
+    buy.addEventListener("click",function(){ if(busy||jOpen())return; var p=parseInt(priceEl.textContent)||0; if(window.__bjBoosterPay)window.__bjBoosterPay(type,p,function(ok){ if(ok)hide(); else shake(); }); });
+    free.addEventListener("click",function(){ if(busy||jOpen())return; busy=true; if(lblEl)lblEl.textContent="..."; function done(){ busy=false; if(lblEl)lblEl.textContent=curFree; hide(); } if(window.__bjBoosterAdRun)window.__bjBoosterAdRun(type,done); else done(); });
+    x.addEventListener("click",function(){ if(busy||jOpen())return; hide(); if(window.__bjBoosterClose)window.__bjBoosterClose(); });
+    modal.addEventListener("click",function(e){ if(e.target===modal){ if(busy||jOpen())return; hide(); if(window.__bjBoosterClose)window.__bjBoosterClose(); } });
+    return function(price,title,desc,freeLbl){ busy=false; if(titleEl&&title)titleEl.textContent=title; if(capEl)capEl.textContent=desc||""; if(priceEl)priceEl.textContent=price; curFree=freeLbl||"GRÁTIS"; if(lblEl)lblEl.textContent=curFree; openedAt=Date.now(); modal.style.display="flex"; };
+  }
+  var showShuffle=wire("mShuffle","shuffle"), showSort=wire("mSort","sort");
   window.__bjShowBoosterModal=function(type,price,title,desc,freeLbl,hint){
-    if(type!=="shuffle" && type!=="sort"){ if(_oldShow) return _oldShow(type,price,title,desc,freeLbl,hint); return; }
-    if(!modal)return; busy=false; curType=type;
-    var _bb=window.PlayerCash|0;
-    if(titleEl&&title)titleEl.textContent=title;
-    if(capEl)capEl.textContent=desc||"";
-    if(priceEl)priceEl.textContent=price;
-    curFree=freeLbl||"GRÁTIS"; if(freeLblEl)freeLblEl.textContent=curFree;
-    $("b2Shuffle").style.display=(type==="shuffle")?"":"none";
-    $("b2Sort").style.display=(type==="sort")?"":"none";
-    modal.style.display="flex"; openedAt=Date.now();
+    if(type==="shuffle") showShuffle(price,title,desc,freeLbl);
+    else if(type==="sort") showSort(price,title,desc,freeLbl);
   };
-  $("b2Buy").addEventListener("click",function(){
-    if(busy||jOpen())return; var price=parseInt(priceEl.textContent)||0;
-    if(window.__bjBoosterPay) window.__bjBoosterPay(curType, price, function(ok){ if(ok)hide(); else shake(); });
-  });
-  $("b2Free").addEventListener("click",function(){
-    if(busy||jOpen())return; busy=true; if(freeLblEl)freeLblEl.textContent="...";
-    function done(){ busy=false; if(freeLblEl)freeLblEl.textContent=curFree; hide(); }
-    if(window.__bjBoosterAdRun) window.__bjBoosterAdRun(curType, done); else done();
-  });
-  $("b2X").addEventListener("click",function(){ if(busy||jOpen())return; hide(); if(window.__bjBoosterClose)window.__bjBoosterClose(); });
-  modal.addEventListener("click",function(e){ if(e.target===modal){ if(busy||jOpen())return; hide(); if(window.__bjBoosterClose)window.__bjBoosterClose(); } });
 })();
 </script>
 

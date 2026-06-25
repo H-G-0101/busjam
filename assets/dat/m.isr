@@ -10,6 +10,9 @@
             <fr>Appuyez pour\ncontinuer</fr>
             <ru>Нажмите,\nчтобы продолжить</ru>
             <pt>Toque para continuar</pt>
+                    <zh>点击继续</zh>
+                    <vi>Chạm để tiếp tục</vi>
+            <ko>계속하려면 탭하세요</ko>
         </string>
 
         <string id="INSTRUCTIONS">
@@ -22,6 +25,9 @@
             <pt>Instruções</pt>
             <nl></nl>
             <no></no>
+                    <zh>说明</zh>
+                    <vi>Hướng dẫn</vi>
+            <ko>설명</ko>
         </string>
 
         <string id="UPGRADES">
@@ -32,6 +38,9 @@
             <fr>Améliorations</fr>
             <ru>обновления</ru>
             <pt>atualizações</pt>
+                    <zh>升级</zh>
+                    <vi>nâng cấp</vi>
+            <ko>업그레이드</ko>
         </string>
 
         <string id="REWARDS">
@@ -42,6 +51,9 @@
             <fr>Récompenses</fr>
             <ru>Награды</ru>
             <pt>Recompensas</pt>
+                    <zh>奖励</zh>
+                    <vi>phần thưởng</vi>
+            <ko>보상</ko>
         </string>
 
         <string id="SPECIAL_EVENT">
@@ -52,6 +64,9 @@
             <fr>Événement spécial</fr>
             <ru>Специальное событие</ru>
             <pt>Evento especial</pt>
+                    <zh>特别活动</zh>
+                    <vi>SỰ KIỆN ĐẶC BIỆT</vi>
+            <ko>특별 이벤트</ko>
         </string>
 
         <string id="KEEP_PLAYING">
@@ -62,6 +77,9 @@
             <fr>Continuer à jouer</fr>
             <ru>Продолжить игру</ru>
             <pt>Continuar jogando</pt>
+                    <zh>继续游戏</zh>
+                    <vi>Tiếp tục chơi</vi>
+            <ko>계속 플레이</ko>
         </string>
 
         <string id="FREE_LIFE">
@@ -72,6 +90,9 @@
             <fr>Vie libre</fr>
             <ru>Бесплатная жизнь</ru>
             <pt>Vida livre</pt>
+                    <zh>免费生命</zh>
+                    <vi>Mạng miễn phí</vi>
+            <ko>무료 생명</ko>
         </string>
 
         <string id="TOURNAMENT">
@@ -82,6 +103,9 @@
             <fr>Tournoi</fr>
             <ru>Турнир</ru>
             <pt>Torneio</pt>
+                    <zh>锦标赛</zh>
+                    <vi>Giải đấu</vi>
+            <ko>토너먼트</ko>
         </string>
 
         <string id="TOURNAMENT_REWARD">
@@ -92,6 +116,9 @@
             <fr>Récompense du tournoi</fr>
             <ru>Турнирная награда</ru>
             <pt>Prêmio do torneio</pt>
+                    <zh>锦标赛奖励</zh>
+                    <vi>Phần thưởng giải đấu</vi>
+            <ko>토너먼트 보상</ko>
         </string>
 
         <string id="TRY_LATER">
@@ -102,6 +129,9 @@
             <fr>Réessayer plus tard</fr>
             <ru>Повторите попытку позже</ru>
             <pt>Tente novamente mais tarde</pt>
+                    <zh>请稍后再试</zh>
+                    <vi>Thử lại sau</vi>
+            <ko>나중에 다시 시도</ko>
         </string>
 
         <string id="XTH_PLACE">
@@ -112,6 +142,9 @@
             <fr>XX. Place</fr>
             <ru>XX. Место</ru>
             <pt>XX. Local</pt>
+                    <zh>第XX名</zh>
+                    <vi>Hạng XX</vi>
+            <ko>XX위</ko>
         </string>
 
         <string id="PROFILE">
@@ -122,6 +155,9 @@
             <fr>Profil</fr>
             <ru>Профиль</ru>
             <pt>Perfil</pt>
+                    <zh>个人资料</zh>
+                    <vi>Hồ sơ</vi>
+            <ko>프로필</ko>
         </string>
 
         <string id="ENTER_NAME">
@@ -132,6 +168,9 @@
             <fr>Saisissez votre nom</fr>
             <ru>введите свое имя</ru>
             <pt>Digite seu nome</pt>
+                    <zh>输入你的名字</zh>
+                    <vi>Nhập tên của bạn</vi>
+            <ko>이름을 입력하세요</ko>
         </string>
 
         <string id="PLAYER_TURN">
@@ -142,6 +181,9 @@
             <fr>Améliorations</fr>
             <ru>обновления</ru>
             <pt>atualizações</pt>
+                    <zh>玩家回合</zh>
+                    <vi>Lượt người chơi</vi>
+            <ko>플레이어 차례</ko>
         </string>
 
         <string id="OPPONENT_TURN">
@@ -152,6 +194,9 @@
             <fr>Tour de l'adversaire</fr>
             <ru>Ход противника</ru>
             <pt>Vez do oponente</pt>
+                    <zh>对手的\n回合</zh>
+                    <vi>Lượt của\nđối thủ</vi>
+            <ko>상대의\n차례</ko>
         </string>
 
         <string id="PLAYER_OUT_OF_TIME">
@@ -162,6 +207,9 @@
             <fr>Vous avez manqué\nde temps</fr>
             <ru>У вас закончилось\nвремя</ru>
             <pt>Você ficou\nsem tempo</pt>
+                    <zh>你的时间\n用完了！</zh>
+                    <vi>Bạn đã hết\nthời gian!</vi>
+            <ko>시간이\n다 됐어요!</ko>
         </string>
 
         <string id="SETTINGS">
@@ -172,6 +220,9 @@
             <fr>Paramètres</fr>
             <ru>Настройки</ru>
             <pt>Definições</pt>
+                    <zh>设置</zh>
+                    <vi>Cài đặt</vi>
+            <ko>설정</ko>
         </string>
 
         <string id="GRAPHICS">
@@ -182,6 +233,9 @@
             <fr>Graphique</fr>
             <ru>Графика</ru>
             <pt>Gráficos</pt>
+                    <zh>画质</zh>
+                    <vi>Đồ họa</vi>
+            <ko>그래픽</ko>
         </string>
 
         <string id="HIGH">
@@ -192,6 +246,9 @@
             <fr>Haute</fr>
             <ru>Высокие</ru>
             <pt>Alto</pt>
+                    <zh>高</zh>
+                    <vi>Cao</vi>
+            <ko>높음</ko>
         </string>
 
         <string id="LOW">
@@ -202,6 +259,9 @@
             <fr>Basse</fr>
             <ru>Низкие</ru>
             <pt>Baixo</pt>
+                    <zh>低</zh>
+                    <vi>Thấp</vi>
+            <ko>낮음</ko>
         </string>
 
         <string id="UPGRADE">
@@ -212,6 +272,9 @@
             <fr>Amélioration</fr>
             <ru>ОБНОВИТЬ</ru>
             <pt>Melhore</pt>
+                    <zh>升级</zh>
+                    <vi>Nâng cấp</vi>
+            <ko>업그레이드</ko>
         </string>
 
         <string id="WEAPONS">
@@ -222,6 +285,9 @@
             <fr>Armes</fr>
             <ru>оружие</ru>
             <pt>Armas</pt>
+                    <zh>武器</zh>
+                    <vi>Vũ khí</vi>
+            <ko>무기</ko>
         </string>
 
         <string id="SELECT">
@@ -232,6 +298,9 @@
             <fr>SÉLECTIONNER</fr>
             <ru>ВЫБРАТЬ</ru>
             <pt>SELECIONE</pt>
+                    <zh>选择</zh>
+                    <vi>Chọn</vi>
+            <ko>선택</ko>
         </string>
 
         <string id="SELECTED">
@@ -242,6 +311,9 @@
             <fr>SÉLECTIONNÉ</fr>
             <ru>Отметить</ru>
             <pt>SELECIONADO</pt>
+                    <zh>已选择</zh>
+                    <vi>ĐÃ CHỌN</vi>
+            <ko>선택됨</ko>
         </string>
 
         <string id="OPEN">
@@ -252,6 +324,9 @@
             <fr>Ouvrir</fr>
             <ru>Открыть</ru>
             <pt>Abrir</pt>
+                    <zh>打开</zh>
+                    <vi>Mở</vi>
+            <ko>열기</ko>
         </string>
 
         <string id="FULLSCREEN">
@@ -262,6 +337,9 @@
             <fr>plein écran</fr>
             <ru>полноэкранный</ru>
             <pt>tela cheia</pt>
+                    <zh>全屏</zh>
+                    <vi>TOÀN MÀN HÌNH</vi>
+            <ko>전체 화면</ko>
         </string>
 
         <string id="ON">
@@ -272,6 +350,9 @@
             <fr>Activé</fr>
             <ru></ru>
             <pt>Ativado</pt>
+                    <zh>开</zh>
+                    <vi>bật</vi>
+            <ko>켜짐</ko>
         </string>
 
         <string id="OFF">
@@ -282,6 +363,9 @@
             <fr>Désactivé</fr>
             <ru></ru>
             <pt>Desativado</pt>
+                    <zh>关</zh>
+                    <vi>tắt</vi>
+            <ko>꺼짐</ko>
         </string>
 
         <string id="YES">
@@ -294,6 +378,9 @@
             <pt>Sim</pt>
             <nl></nl>
             <no></no>
+                    <zh>是</zh>
+                    <vi>Có</vi>
+            <ko>예</ko>
         </string>
 
         <string id="NO">
@@ -306,6 +393,9 @@
             <pt>Não</pt>
             <nl></nl>
             <no></no>
+                    <zh>否</zh>
+                    <vi>Không</vi>
+            <ko>아니오</ko>
         </string>
 
         <string id="RESET">
@@ -318,6 +408,9 @@
             <pt>Retomar</pt>
             <nl></nl>
             <no></no>
+                    <zh>重置</zh>
+                    <vi>Đặt lại</vi>
+            <ko>초기화</ko>
         </string>
 
         <string id="SELECT">
@@ -330,6 +423,9 @@
             <pt>Selecione</pt>
             <nl></nl>
             <no></no>
+                    <zh>选择</zh>
+                    <vi>Chọn</vi>
+            <ko>선택</ko>
         </string>
 
         <string id="NEXT">
@@ -342,6 +438,9 @@
             <pt>Seguinte</pt>
             <nl></nl>
             <no></no>
+                    <zh>下一个</zh>
+                    <vi>Tiếp</vi>
+            <ko>다음</ko>
         </string>
 
         <string id="TAP_TO_PLAY">
@@ -354,6 +453,9 @@
             <pt>Toque para Iniciar</pt>
             <nl></nl>
             <no></no>
+                    <zh>点击开始</zh>
+                    <vi>Chạm để bắt đầu</vi>
+            <ko>탭하여 시작</ko>
         </string>
 
         <string id="MUSIC">
@@ -366,6 +468,9 @@
             <pt>Música</pt>
             <nl></nl>
             <no></no>
+                    <zh>音乐</zh>
+                    <vi>Nhạc</vi>
+            <ko>음악</ko>
         </string>
 
         <string id="LEVEL_UP">
@@ -378,6 +483,9 @@
             <pt>Subir de nível!</pt>
             <nl></nl>
             <no></no>
+                    <zh>升级！</zh>
+                    <vi>Lên cấp!</vi>
+            <ko>레벨 업!</ko>
         </string>
 
         <string id="FREE">
@@ -390,6 +498,9 @@
             <pt>Grátis</pt>
             <nl></nl>
             <no></no>
+                    <zh>免费</zh>
+                    <vi>Miễn phí</vi>
+            <ko>무료</ko>
         </string>
 
         <string id="COLLECT">
@@ -400,6 +511,9 @@
             <fr>RÉCUPÉRER</fr>
             <ru>Собрать</ru>
             <pt>COLECIONAR</pt>
+                    <zh>领取</zh>
+                    <vi>NHẬN</vi>
+            <ko>수집</ko>
         </string>
 
         <string id="CLAIM">
@@ -412,6 +526,9 @@
             <pt>Solicitar</pt>
             <nl></nl>
             <no></no>
+                    <zh>领取</zh>
+                    <vi>Nhận</vi>
+            <ko>받기</ko>
         </string>
 
         <string id="BUY">
@@ -424,6 +541,9 @@
             <pt>Comprar</pt>
             <nl></nl>
             <no></no>
+                    <zh>购买</zh>
+                    <vi>Mua</vi>
+            <ko>구매</ko>
         </string>
 
         <string id="CLAIM_NOW">
@@ -436,6 +556,9 @@
             <pt>Solicitar</pt>
             <nl></nl>
             <no></no>
+                    <zh>立即\n领取</zh>
+                    <vi>Nhận\nNGAY</vi>
+            <ko>지금\n받기</ko>
         </string>
 
         <string id="CLAIMED">
@@ -448,6 +571,9 @@
             <pt>Reclamado</pt>
             <nl></nl>
             <no></no>
+                    <zh>已领取</zh>
+                    <vi>Đã nhận</vi>
+            <ko>받음</ko>
         </string>
 
         <string id="PLAY">
@@ -460,6 +586,9 @@
             <pt>Reproduzir</pt>
             <nl></nl>
             <no></no>
+                    <zh>开始</zh>
+                    <vi>Chơi</vi>
+            <ko>플레이</ko>
         </string>
 
         <string id="REWARD">
@@ -472,6 +601,9 @@
             <pt>Recompensa</pt>
             <nl></nl>
             <no></no>
+                    <zh>奖励</zh>
+                    <vi>Phần thưởng</vi>
+            <ko>보상</ko>
         </string>
 
         <string id="PAUSED">
@@ -484,6 +616,9 @@
             <pt>Jogo pausado</pt>
             <nl></nl>
             <no></no>
+                    <zh>游戏暂停</zh>
+                    <vi>Tạm dừng</vi>
+            <ko>일시정지</ko>
         </string>
 
         <string id="ARE_YOU_SURE">
@@ -496,6 +631,9 @@
             <pt>Tem certeza?\nSeu jogo terminará.</pt>
             <nl></nl>
             <no></no>
+                    <zh>确定吗？\n游戏将结束。</zh>
+                    <vi>Bạn chắc chứ?\nVán chơi sẽ kết thúc.</vi>
+            <ko>정말인가요?\n게임이 종료됩니다.</ko>
         </string>
 
         <string id="LOADING">
@@ -508,6 +646,9 @@
             <pt>Carregando</pt>
             <nl></nl>
             <no></no>
+                    <zh>加载中</zh>
+                    <vi>Đang tải</vi>
+            <ko>로딩 중</ko>
         </string>
 
         <string id="CONTINUE">
@@ -520,6 +661,9 @@
             <pt>Continuar</pt>
             <nl>Fortsätta</nl>
             <no>Fortsette</no>
+                    <zh>继续</zh>
+                    <vi>Tiếp tục</vi>
+            <ko>계속</ko>
         </string>
 
         <string id="CONTINUE?">
@@ -532,6 +676,9 @@
             <pt>Continuar?</pt>
             <nl>Fortsätta?</nl>
             <no>Fortsette?</no>
+                    <zh>继续？</zh>
+                    <vi>Tiếp tục?</vi>
+            <ko>계속?</ko>
         </string>
 
         <string id="PATROL_BONUS">
@@ -544,6 +691,9 @@
             <pt>Bônus de patrulha</pt>
             <nl></nl>
             <no></no>
+                    <zh>巡逻奖励</zh>
+                    <vi>Thưởng tuần tra</vi>
+            <ko>순찰 보너스</ko>
         </string>
 
         <string id="NEW">
@@ -556,6 +706,9 @@
             <pt>Novo!</pt>
             <nl></nl>
             <no></no>
+                    <zh>新！</zh>
+                    <vi>MỚI!</vi>
+            <ko>신규!</ko>
         </string>
 
 	    <string id="STAGE">
@@ -568,6 +721,9 @@
             <pt>Fase</pt>
             <nl></nl>
             <no></no>
+                    <zh>关卡</zh>
+                    <vi>Màn</vi>
+            <ko>스테이지</ko>
         </string>
 
         <string id="ANIMALS_ESCAPED">
@@ -578,6 +734,9 @@
             <fr></fr>
             <ru></ru>
             <pt></pt>
+                    <zh>动物逃跑了</zh>
+                    <vi>ĐỘNG VẬT ĐÃ THOÁT</vi>
+            <ko>동물이 탈출했어요</ko>
         </string>
 
         <string id="INS_PAGE1_TEXT1">
@@ -588,6 +747,9 @@
             <fr>Améliorez   .   et battez\nvos adversaires</fr>
             <ru>Улучшайте   .   и побеждайте\nсвоих соперников</ru>
             <pt>Faça upgrade de   .   e vença\nseus adversários</pt>
+                    <zh>升级   .   并击败你的\n对手</zh>
+                    <vi>NÂNG CẤP   .   VÀ ĐÁNH BẠI\nĐỐI THỦ</vi>
+            <ko>업그레이드   .   하고 상대를\n이기세요</ko>
         </string>
 
         <string id="INS_PAGE2_TEXT1">
@@ -598,6 +760,9 @@
             <fr>Gagnez         pour\ndébloquer de nouvelles     .</fr>
             <ru>Заработайте         чтобы\nразблокировать новые     .</ru>
             <pt>Ganhe         para\ndesbloquear novos     .</pt>
+                    <zh>赚取       以解锁新的   .</zh>
+                    <vi>KIẾM       ĐỂ MỞ KHÓA   .</vi>
+            <ko>획득하여       새   .을 잠금 해제</ko>
         </string>
 
         <string id="INS_PAGE3_TEXT1">
@@ -608,6 +773,9 @@
             <fr>Glissez rapidement lorsque\nvous lancez pour obtenir\nplus de puissance</fr>
             <ru>Быстрые движения при\nброске дают вам\nбольше энергии</ru>
             <pt>Deslizar rapidamente\nao arremessar lhe\ndá mais força</pt>
+                    <zh>投掷时快速滑动\n获得更大力量</zh>
+                    <vi>VUỐT NHANH KHI NÉM\nĐỂ CÓ THÊM SỨC MẠNH</vi>
+            <ko>던질 때 빠르게 스와이프하면\n더 강해져요</ko>
         </string>
 
         <string id="INS_PAGE3_TITLE1">
@@ -618,6 +786,9 @@
             <fr>Cibles</fr>
             <ru>Цели</ru>
             <pt>Alvos</pt>
+                    <zh>目标</zh>
+                    <vi>Mục tiêu</vi>
+            <ko>목표</ko>
         </string>
 
         <string id="INS_PAGE3_DESC1">
@@ -628,6 +799,9 @@
             <fr>Tire sur les cibles pour\ncollecter des points</fr>
             <ru>Стреляйте по целям,\nчтобы заработать очки</ru>
             <pt>Atire nos alvos para\ncoletar pontos</pt>
+                    <zh>射击目标以获得分数</zh>
+                    <vi>Bắn mục tiêu để ghi điểm</vi>
+            <ko>목표를 맞춰 점수를 모으세요</ko>
         </string>
 
         <string id="INS_PAGE3_TITLE2">
@@ -638,6 +812,9 @@
             <fr>Coup direct</fr>
             <ru>Прямой удар</ru>
             <pt>Tiro direto</pt>
+                    <zh>直接射击</zh>
+                    <vi>Ném thẳng</vi>
+            <ko>직선 슛</ko>
         </string>
 
         <string id="INS_PAGE3_DESC2">
@@ -648,6 +825,9 @@
             <fr>Balayez vers l'avant</fr>
             <ru>Проведите вперёд</ru>
             <pt>Deslize para frente</pt>
+                    <zh>向前滑动</zh>
+                    <vi>Vuốt về phía trước</vi>
+            <ko>앞으로 스와이프</ko>
         </string>
 
         <string id="INS_PAGE3_TITLE3">
@@ -658,6 +838,9 @@
             <fr>Coup courbé</fr>
             <ru>Криволинейный удар</ru>
             <pt>Tiro curvo</pt>
+                    <zh>曲线射击</zh>
+                    <vi>Ném xoáy</vi>
+            <ko>커브 슛</ko>
         </string>
 
         <string id="INS_PAGE3_DESC3">
@@ -668,6 +851,9 @@
             <fr>Balayez vers l'avant\npuis tournez</fr>
             <ru>Проведите вперёд,\nа затем поверните</ru>
             <pt>Deslize para frente\ne depois vire</pt>
+                    <zh>向前滑动然后转向</zh>
+                    <vi>Vuốt về trước rồi rẽ</vi>
+            <ko>앞으로 스와이프 후 돌리기</ko>
         </string>
 
         <string id="SPECIAL_EVENT">
@@ -678,6 +864,9 @@
             <fr>Événement spécial</fr>
             <ru>Открыть</ru>
             <pt>Abrir</pt>
+                    <zh>特别活动</zh>
+                    <vi>SỰ KIỆN ĐẶC BIỆT</vi>
+            <ko>특별 이벤트</ko>
         </string>
 
         <string id="START_EVENT">
@@ -688,6 +877,9 @@
             <fr>Commencer l'événement</fr>
             <ru>Начать событие</ru>
             <pt>Iniciar evento</pt>
+                    <zh>开始活动</zh>
+                    <vi>Bắt đầu sự kiện</vi>
+            <ko>이벤트 시작</ko>
         </string>
 
         <string id="SEARCHING_OPPONENT">
@@ -698,6 +890,9 @@
             <fr>recherche de joueur</fr>
             <ru>поиск игрока</ru>
             <pt>procurar jogador</pt>
+                    <zh>正在寻找玩家</zh>
+                    <vi>đang tìm người chơi</vi>
+            <ko>플레이어 찾는 중</ko>
         </string>
 
         <string id="EARN_TROPHIES_TO_UNLOCK">
@@ -708,6 +903,9 @@
             <fr>gagnez des trophées\npour débloquer</fr>
             <ru>зарабатывайте\nтрофеи, чтобы\nразблокировать</ru>
             <pt>ganhe troféus\npara desbloquear</pt>
+                    <zh>赢取奖杯\n以解锁</zh>
+                    <vi>Kiếm cúp\nđể mở khóa</vi>
+            <ko>트로피를 모아\n잠금 해제</ko>
         </string>
 
         <string id="NEW_GAME">
@@ -718,6 +916,9 @@
             <it>Nuovo gioco</it>
             <pt>Novo jogo</pt>
             <ru>Новая игра</ru>
+                    <zh>新游戏</zh>
+                    <vi>Ván mới</vi>
+            <ko>새 게임</ko>
         </string>
 
         <string id="GAME_ENDED">
@@ -728,6 +929,9 @@
             <fr>NAN</fr>
             <ru>NAN</ru>
             <pt>NAN</pt>
+                    <zh>游戏结束</zh>
+                    <vi>Ván đã kết thúc</vi>
+            <ko>게임 종료</ko>
         </string>
 
         <string id="TARGET">
@@ -738,6 +942,9 @@
             <fr>Objectif</fr>
             <ru>цель</ru>
             <pt>Alvo</pt>
+                    <zh>目标</zh>
+                    <vi>Mục tiêu</vi>
+            <ko>목표</ko>
         </string>
 
         <string id="WATCH_AD">
@@ -748,6 +955,9 @@
             <fr>publicité</fr>
             <ru>реклама</ru>
             <pt>anúncio</pt>
+                    <zh>观看广告</zh>
+                    <vi>Xem quảng cáo</vi>
+            <ko>광고 보기</ko>
         </string>
 
         <string id="MIN">
@@ -758,6 +968,9 @@
             <fr>m</fr>
             <ru>м</ru>
             <pt>m</pt>
+                    <zh>分</zh>
+                    <vi>p</vi>
+            <ko>분</ko>
         </string>
 
         <string id="SEC">
@@ -768,6 +981,9 @@
             <fr>s</fr>
             <ru>с</ru>
             <pt>s</pt>
+                    <zh>秒</zh>
+                    <vi>g</vi>
+            <ko>초</ko>
         </string>
 
         <string id="WEIGHT">
@@ -778,6 +994,9 @@
             <fr>poids</fr>
             <ru>масса</ru>
             <pt>peso</pt>
+                    <zh>重量</zh>
+                    <vi>Trọng lượng</vi>
+            <ko>무게</ko>
         </string>
 
         <string id="SPEED">
@@ -788,6 +1007,9 @@
             <fr>Vitesse</fr>
             <ru>скорость</ru>
             <pt>Velocidade</pt>
+                    <zh>速度</zh>
+                    <vi>Tốc độ</vi>
+            <ko>속도</ko>
         </string>
 
         <string id="RELOAD">
@@ -798,6 +1020,9 @@
             <fr>Recharge</fr>
             <ru>Перезагрузка</ru>
             <pt>Recarregar</pt>
+                    <zh>装填</zh>
+                    <vi>nạp lại</vi>
+            <ko>재장전</ko>
         </string>
 
         <string id="CURVEC">
@@ -808,6 +1033,9 @@
             <fr>Contrôle de la courbe</fr>
             <ru>Управление кривой</ru>
             <pt>Controle de curva</pt>
+                    <zh>曲线控制</zh>
+                    <vi>Điều khiển xoáy</vi>
+            <ko>커브 조절</ko>
         </string>
 
         <string id="VICTORY">
@@ -818,6 +1046,9 @@
             <fr>Victoire</fr>
             <ru>Победа</ru>
             <pt>Vitória</pt>
+                    <zh>胜利</zh>
+                    <vi>Chiến thắng</vi>
+            <ko>승리</ko>
         </string>
 
         <string id="DEFEAT">
@@ -828,6 +1059,9 @@
             <fr>défaite</fr>
             <ru>поражение</ru>
             <pt>derrota</pt>
+                    <zh>失败</zh>
+                    <vi>thất bại</vi>
+            <ko>패배</ko>
         </string>
 
         <string id="DRAW">
@@ -838,6 +1072,9 @@
             <fr>match nul</fr>
             <ru>Ничья</ru>
             <pt>empate</pt>
+                    <zh>平局</zh>
+                    <vi>Hòa</vi>
+            <ko>무승부</ko>
         </string>
 
         <string id="SPLIT">
@@ -848,6 +1085,9 @@
             <fr>Split</fr>
             <ru>Сплит</ru>
             <pt>Split</pt>
+                    <zh>分瓶</zh>
+                    <vi>Split</vi>
+            <ko>스플릿</ko>
         </string>
 
         <string id="SPARE">
@@ -858,6 +1098,9 @@
             <fr>Spare</fr>
             <ru>Спэр</ru>
             <pt>Spare</pt>
+                    <zh>补中</zh>
+                    <vi>Spare</vi>
+            <ko>스페어</ko>
         </string>
 
         <string id="STRIKE">
@@ -868,6 +1111,9 @@
             <fr>Strike</fr>
             <ru>Страйк</ru>
             <pt>Strike</pt>
+                    <zh>全中</zh>
+                    <vi>Strike</vi>
+            <ko>스트라이크</ko>
         </string>
 
         <string id="DOUBLE">
@@ -878,6 +1124,9 @@
             <fr>Double</fr>
             <ru>Дубль</ru>
             <pt>Duplo</pt>
+                    <zh>双倍</zh>
+                    <vi>Đôi</vi>
+            <ko>더블</ko>
         </string>
 
         <string id="OPEN">
@@ -888,6 +1137,9 @@
             <fr>Ouvrir</fr>
             <ru>Открыть</ru>
             <pt>Abrir</pt>
+                    <zh>打开</zh>
+                    <vi>Mở</vi>
+            <ko>열기</ko>
         </string>
 
         <string id="TURKEY">
@@ -898,6 +1150,9 @@
             <fr>Turkey</fr>
             <ru>Турки</ru>
             <pt>Turkey</pt>
+                    <zh>三连中</zh>
+                    <vi>Ba liên tiếp</vi>
+            <ko>터키</ko>
         </string>
 
         <string id="HAMBONE">
@@ -908,6 +1163,9 @@
             <fr>Hambone</fr>
             <ru>Хэмбоун</ru>
             <pt>Hambone</pt>
+                    <zh>四连中</zh>
+                    <vi>Bốn liên tiếp</vi>
+            <ko>햄본</ko>
         </string>
 
         <string id="PERFECT_GAME">
@@ -918,6 +1176,9 @@
             <fr>Partie\nparfaite</fr>
             <ru>Идеальная\nигра</ru>
             <pt>Jogo\nperfeito</pt>
+                    <zh>完美\n比赛</zh>
+                    <vi>Ván\nhoàn hảo</vi>
+            <ko>퍼펙트\n게임</ko>
         </string>
 
         <string id="LOREM_LONG">
@@ -928,6 +1189,9 @@
             <fr>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec erat nisl. Pellentesque tristique, quam nec blandit tincidunt.</fr>
             <ru>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec erat nisl. Pellentesque tristique, quam nec blandit tincidunt.</ru>
             <pt>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec erat nisl. Pellentesque tristique, quam nec blandit tincidunt.</pt>
+                    <zh>示例文本。</zh>
+                    <vi>Văn bản mẫu.</vi>
+            <ko>예시 텍스트.</ko>
         </string>
 
         <string id="LOREM_SHORT">
@@ -938,6 +1202,9 @@
             <fr>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</fr>
             <ru>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ru>
             <pt>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</pt>
+                    <zh>示例文本。</zh>
+                    <vi>Văn bản mẫu.</vi>
+            <ko>예시 텍스트.</ko>
         </string>
 
         <string id="ONBOARDING_STEP1">
@@ -948,6 +1215,9 @@
             <fr>glisser vers l'avant</fr>
             <ru>Проведите пальцем вперед</ru>
             <pt>deslizar para frente</pt>
+                    <zh>向前滑动</zh>
+                    <vi>Vuốt về phía trước</vi>
+            <ko>앞으로 스와이프</ko>
         </string>
 
         <string id="ONBOARDING_STEP2">
@@ -958,6 +1228,9 @@
             <fr>Tire sur les cibles pour collecter des points</fr>
             <ru>Стреляйте по целям, чтобы заработать очки</ru>
             <pt>Atire nos alvos para coletar pontos</pt>
+                    <zh>射击目标以获得分数</zh>
+                    <vi>Bắn mục tiêu để ghi điểm</vi>
+            <ko>목표를 맞춰 점수를 모으세요</ko>
         </string>
 
         <string id="ONBOARDING_STEP3">
@@ -968,6 +1241,9 @@
             <fr>Faire glisser le ballon vers l'avant</fr>
             <ru>Проведите мяч вперед</ru>
             <pt>Deslize a bola para frente</pt>
+                    <zh>向前滑动球</zh>
+                    <vi>Vuốt bóng về trước</vi>
+            <ko>공을 앞으로 스와이프</ko>
         </string>
 
         <string id="ONBOARDING_STEP5">
@@ -978,6 +1254,9 @@
             <fr>Superbe! Prêt pour d'autres mouvements sympas ?</fr>
             <ru>Класс! Готовы к новым крутым движениям?</ru>
             <pt>Muito bom! Pronto para outra jogada legal?</pt>
+                    <zh>不错！准备好下一个动作了吗？</zh>
+                    <vi>Tuyệt! Sẵn sàng cho động tác tiếp theo chưa?</vi>
+            <ko>좋아요! 다음 멋진 동작 준비됐나요?</ko>
         </string>
 
         <string id="ONBOARDING_STEP6">
@@ -988,6 +1267,9 @@
             <fr>Déplacez la balle en la faisant glisser latéralement.</fr>
             <ru>Перемещайте мяч, перетаскивая его из стороны в сторону.</ru>
             <pt>Mova a bola arrastando-a para os lados.</pt>
+                    <zh>左右拖动来移动球。</zh>
+                    <vi>Di chuyển bóng bằng cách kéo sang hai bên.</vi>
+            <ko>공을 좌우로 끌어 이동하세요.</ko>
         </string>
 
         <string id="ONBOARDING_STEP7">
@@ -998,6 +1280,9 @@
             <fr>Fais glisser les flèches sous la balle pour ajuster la direction de ton lancer.</fr>
             <ru>Передвигайте стрелки под мячом, чтобы изменить направление броска.</ru>
             <pt>Deslize as setas abaixo da bola para ajustar a direção do arremesso.</pt>
+                    <zh>滑动球下方的箭头来调整投掷方向。</zh>
+                    <vi>Trượt mũi tên dưới bóng để chỉnh hướng ném.</vi>
+            <ko>공 아래 화살표를 밀어 던지는 방향을 조절하세요.</ko>
         </string>
 
         <string id="ONBOARDING_STEP8">
@@ -1008,6 +1293,9 @@
             <fr>Bon travail. Maintenant, amuse-toi et gagne le match.</fr>
             <ru>Отличная работа. Теперь веселитесь и выигрывайте матч.</ru>
             <pt>Ótimo trabalho. Agora, divirta-se e ganhe a partida.</pt>
+                    <zh>做得好。现在尽情享受并赢得比赛吧。</zh>
+                    <vi>Làm tốt lắm. Giờ hãy vui chơi và giành chiến thắng.</vi>
+            <ko>잘했어요. 이제 즐기며 경기를 이기세요.</ko>
         </string>
 
         <string id="ONBOARDING_STEP11">
@@ -1018,6 +1306,9 @@
             <fr>Gagner des jeux pour collecter des prix.</fr>
             <ru>Выигрывай игры, чтобы собирать призы.</ru>
             <pt>Vença jogos para coletar prêmios.</pt>
+                    <zh>赢得比赛以获得奖品。</zh>
+                    <vi>Thắng các ván để nhận phần thưởng.</vi>
+            <ko>게임을 이겨 상품을 모으세요.</ko>
         </string>
 
         <string id="MAX">
@@ -1028,6 +1319,9 @@
             <fr>Max</fr>
             <ru>Макс.</ru>
             <pt>Máx</pt>
+                    <zh>最大</zh>
+                    <vi>Tối đa</vi>
+            <ko>최대</ko>
         </string>
 
         <string id="YOUR_TURN">
@@ -1038,6 +1332,9 @@
             <fr>À ton tour</fr>
             <ru>Твой ход</ru>
             <pt>Sua vez</pt>
+                    <zh>你的回合</zh>
+                    <vi>Lượt của bạn</vi>
+            <ko>당신의 차례</ko>
         </string>
 
         <string id="WAY_BETTER">
@@ -1048,6 +1345,9 @@
             <fr>Bien meilleur</fr>
             <ru>гораздо лучше</ru>
             <pt>Muito melhor</pt>
+                    <zh>好多了</zh>
+                    <vi>Tốt hơn nhiều</vi>
+            <ko>훨씬 좋아요</ko>
         </string>
 
         <string id="SWAP_THE_BALL">
@@ -1058,6 +1358,9 @@
             <fr>Changer de boule</fr>
             <ru>Сменить шар</ru>
             <pt>Trocar a bola</pt>
+                    <zh>交换球</zh>
+                    <vi>Đổi bóng</vi>
+            <ko>공 교체</ko>
         </string>
 
         <string id="VS">
@@ -1068,6 +1371,9 @@
             <fr>c</fr>
             <ru>против</ru>
             <pt>contra</pt>
+                    <zh>VS</zh>
+                    <vi>VS</vi>
+            <ko>VS</ko>
         </string>
 
         <string id="ON_FIRE">
@@ -1078,6 +1384,9 @@
             <fr>En feu</fr>
             <ru>В огне</ru>
             <pt>Em chamas</pt>
+                    <zh>火热</zh>
+                    <vi>Bùng cháy</vi>
+            <ko>불붙음</ko>
         </string>
 
         <string id="SCOREBOARD">
@@ -1088,6 +1397,9 @@
             <fr>Tableau des scores</fr>
             <ru>Табло</ru>
             <pt>Placar</pt>
+                    <zh>记分板</zh>
+                    <vi>Bảng điểm</vi>
+            <ko>점수판</ko>
         </string>
 
         <string id="PLAYER">
@@ -1098,6 +1410,9 @@
             <fr>PLAYER</fr>
             <ru>ИГРОК</ru>
             <pt>PLAYER</pt>
+                    <zh>玩家</zh>
+                    <vi>NGƯỜI CHƠI</vi>
+            <ko>플레이어</ko>
         </string>
 
         <string id="TOTAL">
@@ -1108,6 +1423,9 @@
             <fr>Total</fr>
             <ru>всего</ru>
             <pt>Total</pt>
+                    <zh>总计</zh>
+                    <vi>Tổng</vi>
+            <ko>합계</ko>
         </string>
 
         <string id="MATCH_BEGINS">
@@ -1118,6 +1436,9 @@
             <fr>Début du match</fr>
             <ru>Матч начинается</ru>
             <pt>Início da partida</pt>
+                    <zh>比赛开始</zh>
+                    <vi>trận đấu bắt đầu</vi>
+            <ko>경기 시작</ko>
         </string>
 
         <string id="HALFTIME">
@@ -1128,6 +1449,9 @@
             <fr>Mi-temps</fr>
             <ru>Перерыв</ru>
             <pt>Intervalo</pt>
+                    <zh>中场</zh>
+                    <vi>Nghỉ giữa hiệp</vi>
+            <ko>하프타임</ko>
         </string>
 
         <string id="OVERTIME">
@@ -1138,6 +1462,9 @@
             <fr>Heures supplémentaires</fr>
             <ru>Овертайм</ru>
             <pt>Prorrogação</pt>
+                    <zh>加时</zh>
+                    <vi>Hiệp phụ</vi>
+            <ko>연장</ko>
         </string>
 
         <string id="TIME_IS_UP">
@@ -1148,6 +1475,9 @@
             <fr>Le temps\nest écoulé</fr>
             <ru>Время\nистекло</ru>
             <pt>O tempo acabou</pt>
+                    <zh>时间到</zh>
+                    <vi>Hết giờ</vi>
+            <ko>시간 종료</ko>
         </string>
 
         <string id="HALF">
@@ -1158,6 +1488,9 @@
             <fr>Moitié</fr>
             <ru>Половина</ru>
             <pt>Metade</pt>
+                    <zh>半场</zh>
+                    <vi>Hiệp</vi>
+            <ko>하프</ko>
         </string>
 
         <string id="TOTAL_SCORE">
@@ -1168,6 +1501,9 @@
             <fr>Score total</fr>
             <ru>Общий счет</ru>
             <pt>Pontuação total</pt>
+                    <zh>总分</zh>
+                    <vi>Tổng điểm</vi>
+            <ko>총점</ko>
         </string>
 
         <string id="FINAL_RESULT">
@@ -1178,6 +1514,9 @@
             <fr>Résultat final</fr>
             <ru>Итоговый результат</ru>
             <pt>Resultado final</pt>
+                    <zh>最终结果</zh>
+                    <vi>Kết quả cuối</vi>
+            <ko>최종 결과</ko>
         </string>
 
         <string id="NAME">
@@ -1188,6 +1527,9 @@
             <fr>Nom</fr>
             <ru>Имя</ru>
             <pt>Nome</pt>
+                    <zh>名字</zh>
+                    <vi>tên</vi>
+            <ko>이름</ko>
         </string>
 
         <string id="REWARDS">
@@ -1198,6 +1540,9 @@
             <fr>Récompenses</fr>
             <ru>Награды</ru>
             <pt>Recompensas</pt>
+                    <zh>奖励</zh>
+                    <vi>phần thưởng</vi>
+            <ko>보상</ko>
         </string>
 
         <string id="YOUR_TOTAL_WINS">
@@ -1208,6 +1553,9 @@
             <fr>Total de victoires</fr>
             <ru>Количество побед</ru>
             <pt>Seu total de vitórias</pt>
+                    <zh>你的总胜场</zh>
+                    <vi>Tổng số trận thắng</vi>
+            <ko>총 승리 수</ko>
         </string>
 
         <string id="QUEST_EARN_STARS">
@@ -1218,6 +1566,9 @@
             <fr>Gagnez XX Étoiles</fr>
             <ru>Заработай Звезды: XX</ru>
             <pt>Ganhe XX Estrelas</pt>
+                    <zh>获得XX颗星</zh>
+                    <vi>Kiếm XX Sao</vi>
+            <ko>별 XX개 획득</ko>
         </string>
 
         <string id="QUEST_WIN_GAMES">
@@ -1228,6 +1579,9 @@
             <fr>Gagner XX Jeux</fr>
             <ru>Выиграй Игры: XX</ru>
             <pt>Ganhe XX Jogos</pt>
+                    <zh>赢得XX场比赛</zh>
+                    <vi>Thắng XX Ván</vi>
+            <ko>게임 XX회 승리</ko>
         </string>
 
         <string id="QUEST_USE_BOOSTERS">
@@ -1238,6 +1592,9 @@
             <fr>Utiliser XX Capacités</fr>
             <ru>Используй Способности: XX</ru>
             <pt>Use XX Habilidades</pt>
+                    <zh>使用XX个道具</zh>
+                    <vi>Dùng XX Vật phẩm</vi>
+            <ko>능력 XX개 사용</ko>
         </string>
 
         <string id="QUEST_WATCH_ADS">
@@ -1248,6 +1605,9 @@
             <fr>Voir XX Annonces</fr>
             <ru>Посмотри Рекламу: XX</ru>
             <pt>Ver XX anúncios</pt>
+                    <zh>观看XX个广告</zh>
+                    <vi>Xem XX Quảng cáo</vi>
+            <ko>광고 XX개 시청</ko>
         </string>
 
         <string id="QUEST_COLLECT_ITEMS">
@@ -1258,6 +1618,9 @@
             <fr>Collecter XX objets</fr>
             <ru>Собери предметы: XX </ru>
             <pt>Colete XX itens</pt>
+                    <zh>收集XX个物品</zh>
+                    <vi>Thu thập XX Vật phẩm</vi>
+            <ko>아이템 XX개 수집</ko>
         </string>
 
         <string id="QUEST_COMPLETE_ALL">
@@ -1268,6 +1631,9 @@
             <fr>Terminer toutes les missions</fr>
             <ru>Заверши все задания</ru>
             <pt>Termine todas as missões</pt>
+                    <zh>完成所有任务</zh>
+                    <vi>Hoàn thành mọi nhiệm vụ</vi>
+            <ko>모든 퀘스트 완료</ko>
         </string>
 
         <string id="SHOP">
@@ -1278,6 +1644,9 @@
             <fr>Magasin</fr>
             <ru>Магазин</ru>
             <pt>Loja</pt>
+                    <zh>商店</zh>
+                    <vi>Cửa hàng</vi>
+            <ko>상점</ko>
         </string>
 
         <string id="QUESTS">
@@ -1288,6 +1657,9 @@
             <fr>Missions</fr>
             <ru>Задания</ru>
             <pt>Missões</pt>
+                    <zh>任务</zh>
+                    <vi>Nhiệm vụ</vi>
+            <ko>퀘스트</ko>
         </string>
 
         <string id="AUDIO">
@@ -1298,6 +1670,9 @@
             <fr>Audio</fr>
             <ru>Аудио</ru>
             <pt>Áudio</pt>
+                    <zh>声音</zh>
+                    <vi>Âm thanh</vi>
+            <ko>오디오</ko>
         </string>
 
         <string id="LEVEL">
@@ -1308,6 +1683,9 @@
             <fr>Niveau</fr>
             <ru>Уровень</ru>
             <pt>Nível</pt>
+                    <zh>关卡</zh>
+                    <vi>Cấp</vi>
+            <ko>레벨</ko>
         </string>
 
         <string id="SURRENDER">
@@ -1318,6 +1696,9 @@
             <fr>Se rendre</fr>
             <ru>Сдаться</ru>
             <pt>Render-se</pt>
+                    <zh>投降</zh>
+                    <vi>Đầu hàng</vi>
+            <ko>항복</ko>
         </string>
 
         <string id="MAIN_MENU">
@@ -1328,6 +1709,9 @@
             <fr>Menu\nprincipal</fr>
             <ru>Главное\nменю</ru>
             <pt>Menu\nprincipal</pt>
+                    <zh>主\n菜单</zh>
+                    <vi>Menu\nchính</vi>
+            <ko>메인\n메뉴</ko>
         </string>
 
         <string id="NEXT_LEVEL">
@@ -1338,6 +1722,9 @@
             <fr>Niveau Suivant</fr>
             <ru>Следующий\nУровень</ru>
             <pt>Próximo Nível</pt>
+                    <zh>下一关</zh>
+                    <vi>Cấp tiếp theo</vi>
+            <ko>다음 레벨</ko>
         </string>
 
         <string id="EVENT_GIFTS">
@@ -1348,6 +1735,9 @@
             <fr>Cadeaux de l'événement</fr>
             <ru>Подарки к событиям</ru>
             <pt>Presentes de eventos</pt>
+                    <zh>活动礼物</zh>
+                    <vi>Quà sự kiện</vi>
+            <ko>이벤트 선물</ko>
         </string>
 
         <string id="FIRST_GAME_REWARD">
@@ -1358,6 +1748,9 @@
             <fr>Récompense pour la première partie</fr>
             <ru>Награда за первую игру</ru>
             <pt>Recompensa pelo primeiro jogo</pt>
+                    <zh>首局奖励</zh>
+                    <vi>Thưởng ván đầu</vi>
+            <ko>첫 게임 보상</ko>
         </string>
 
         <string id="GOLDPIGGY">
@@ -1368,6 +1761,9 @@
             <fr>Cochon d'or!</fr>
             <ru>Золотая свинка!</ru>
             <pt>Porquinho dourado!</pt>
+                    <zh>金猪！</zh>
+                    <vi>Heo vàng!</vi>
+            <ko>황금 돼지!</ko>
         </string>
 
         <string id="LEVEL_FAILED">
@@ -1378,6 +1774,9 @@
             <fr>Niveau échoué</fr>
             <ru>Уровень провален</ru>
             <pt>Nível falhado</pt>
+                    <zh>关卡失败</zh>
+                    <vi>Thất bại</vi>
+            <ko>레벨 실패</ko>
         </string>
 
         <string id="TRY_AGAIN">
@@ -1388,6 +1787,9 @@
             <fr>Réessayer</fr>
             <ru>Попробуй\nеще раз</ru>
             <pt>Tente\nnovamente</pt>
+                    <zh>再试一次</zh>
+                    <vi>Thử lại</vi>
+            <ko>다시 시도</ko>
         </string>
 
         <string id="OUT_OF_SPACE">
@@ -1398,6 +1800,9 @@
             <fr>Hors de l'espace</fr>
             <ru>Не хватает места</ru>
             <pt>Fora do espaço</pt>
+                    <zh>空间不足</zh>
+                    <vi>Hết chỗ</vi>
+            <ko>공간 부족</ko>
         </string>
 
         <string id="CLEAR_INVENTORY">
@@ -1408,6 +1813,9 @@
             <fr>Effacer\nl'inventaire</fr>
             <ru>Очистить\nинвентарь</ru>
             <pt>Limpar\ninventário</pt>
+                    <zh>清空\n库存</zh>
+                    <vi>Dọn\nkho</vi>
+            <ko>보관함\n비우기</ko>
         </string>
 
         <string id="OUT_OF_TIME">
@@ -1418,6 +1826,9 @@
             <fr>Temps écoulé</fr>
             <ru>Время вышло</ru>
             <pt>Sem tempo</pt>
+                    <zh>时间用尽</zh>
+                    <vi>Hết giờ</vi>
+            <ko>시간 초과</ko>
         </string>
 
         <string id="PLAY_ON">
@@ -1428,6 +1839,9 @@
             <fr>Continuer\nà jouer</fr>
             <ru>Продолжить\nигру</ru>
             <pt>Continuar\njogando</pt>
+                    <zh>继续玩</zh>
+                    <vi>Chơi tiếp</vi>
+            <ko>계속 플레이</ko>
         </string>
 
         <string id="INSUFFICIENT_FUNDS">
@@ -1438,6 +1852,9 @@
             <fr>Fonds insuffisants</fr>
             <ru>Недостаточно средств</ru>
             <pt>Fundos insuficientes</pt>
+                    <zh>金币不足</zh>
+                    <vi>Không đủ tiền</vi>
+            <ko>잔액 부족</ko>
         </string>
 
         <string id="THROWBACK">
@@ -1448,6 +1865,9 @@
             <fr>Retourner</fr>
             <ru>Возврат</ru>
             <pt>Retornar</pt>
+                    <zh>撤回</zh>
+                    <vi>Trả lại</vi>
+            <ko>되돌리기</ko>
         </string>
 
         <string id="WHIRLWIND">
@@ -1458,6 +1878,9 @@
             <fr>Tourbillon</fr>
             <ru>Вихрь</ru>
             <pt>Redemoinho</pt>
+                    <zh>旋风</zh>
+                    <vi>Lốc xoáy</vi>
+            <ko>회오리</ko>
         </string>
 
         <string id="ROCKET">
@@ -1468,6 +1891,9 @@
             <fr>Fusée</fr>
             <ru>Ракета</ru>
             <pt>Foguete</pt>
+                    <zh>火箭</zh>
+                    <vi>Tên lửa</vi>
+            <ko>로켓</ko>
         </string>
 
         <string id="MGLASS">
@@ -1478,6 +1904,9 @@
             <fr>Chercheur\nd'objectifs</fr>
             <ru>Отслеживатель\nцелей</ru>
             <pt>Localizador\nde metas</pt>
+                    <zh>目标查找器</zh>
+                    <vi>Tìm mục tiêu</vi>
+            <ko>목표 탐색기</ko>
         </string>
 
         <string id="THROWBACK_DESC">
@@ -1488,6 +1917,9 @@
             <fr>Renvoie un objet sur le terrain de jeu.</fr>
             <ru>Возвращает один предмет обратно на игровое поле.</ru>
             <pt>Retorna um objeto ao campo de jogo.</pt>
+                    <zh>将一个物品放回场地。</zh>
+                    <vi>Trả một vật phẩm về sân.</vi>
+            <ko>아이템 하나를 필드로 되돌립니다.</ko>
         </string>
 
         <string id="WHIRLWIND_DESC">
@@ -1498,6 +1930,9 @@
             <fr>Réorganisez les éléments sur le terrain de jeu.</fr>
             <ru>Перемешивает предметы на игровом поле.</ru>
             <pt>Reorganize os elementos no campo de jogo.</pt>
+                    <zh>打乱场地上的物品。</zh>
+                    <vi>Xáo trộn các vật phẩm trên sân.</vi>
+            <ko>필드의 아이템을 섞습니다.</ko>
         </string>
 
         <string id="MGLASS_DESC">
@@ -1508,6 +1943,9 @@
             <fr>Met en évidence trois éléments objectifs.</fr>
             <ru>Выделяет три целевых предмета.</ru>
             <pt>Destaca três elementos objetivo.</pt>
+                    <zh>高亮三个目标物品。</zh>
+                    <vi>Làm nổi bật ba vật phẩm mục tiêu.</vi>
+            <ko>목표 아이템 3개를 강조합니다.</ko>
         </string>
 
         <string id="ROCKET_DESC">
@@ -1518,6 +1956,9 @@
             <fr>Détruit trois éléments non-objectifs.</fr>
             <ru>Уничтожает три нецелевых предмета.</ru>
             <pt>Destrua três itens não-alvo.</pt>
+                    <zh>消除三个非目标物品。</zh>
+                    <vi>Phá hủy ba vật phẩm không phải mục tiêu.</vi>
+            <ko>목표가 아닌 아이템 3개를 제거합니다.</ko>
         </string>
 
         <string id="INSTRUCTIONS_PAGE0">
@@ -1528,6 +1969,9 @@
             <fr>Touchez 3 objets\nidentiques pour\nles collecter</fr>
             <ru>Нажми на 3 одинаковых\nпредмета, чтобы\nсобрать их</ru>
             <pt>Toque em 3 objetos\nidênticos para\ncoletá-los</pt>
+                    <zh>点击3个相同物品\n来收集</zh>
+                    <vi>Chạm 3 vật giống nhau\nđể thu thập</vi>
+            <ko>같은 아이템 3개를 탭하여\n수집하세요</ko>
         </string>
 
         <string id="INSTRUCTIONS_PAGE1">
@@ -1538,6 +1982,9 @@
             <fr>Collectez tous les\nobjets OBJECTIF pour\nterminer le niveau</fr>
             <ru>Собери все ЦЕЛЕВЫЕ\nпредметы, чтобы\nзакончить уровень</ru>
             <pt>Colete todos os itens\nde OBJETIVO para\nterminar o nível</pt>
+                    <zh>收集所有目标物品\n以完成关卡</zh>
+                    <vi>Thu thập mọi vật MỤC TIÊU\nđể hoàn thành màn</vi>
+            <ko>모든 목표 아이템을 수집해\n레벨을 완료하세요</ko>
         </string>
 
         <string id="INSTRUCTIONS_PAGE2">
@@ -1548,6 +1995,9 @@
             <fr>Collectez tous les\nobjectifs avant que le\nTEMPS ne soit écoulé!</fr>
             <ru>Собери все цели,\nпока не закончилось\nВРЕМЯ!</ru>
             <pt>Colete todos os\nobjetivos antes que\no TEMPO acabe!</pt>
+                    <zh>在时间结束前\n收集所有目标！</zh>
+                    <vi>Thu thập mọi mục tiêu\ntrước khi HẾT GIỜ!</vi>
+            <ko>시간이 끝나기 전에\n모든 목표를 수집하세요!</ko>
         </string>
 
         <string id="WELCOME">
@@ -1558,6 +2008,9 @@
             <fr>Bienvenue!</fr>
             <ru>Добро пожаловать!</ru>
             <pt>Bem-vindo!</pt>
+                    <zh>欢迎！</zh>
+                    <vi>Chào mừng!</vi>
+            <ko>환영합니다!</ko>
         </string>
 
         <string id="WELCOME_MESSAGE">
@@ -1568,6 +2021,9 @@
             <fr>Apprenez à jouer et tirez le meilleur parti de votre aventure.</fr>
             <ru>Давай научимся играть и получим максимум удовольствия от твоего приключения.</ru>
             <pt>Vamos aprender a jogar e aproveitar ao máximo sua aventura.</pt>
+                    <zh>让我们学习如何游玩，充分享受你的冒险。</zh>
+                    <vi>Hãy học cách chơi và tận hưởng cuộc phiêu lưu của bạn.</vi>
+            <ko>플레이 방법을 배우고 모험을 마음껏 즐겨보세요.</ko>
         </string>
 
         <string id="MAX">
@@ -1578,6 +2034,9 @@
             <fr>Max</fr>
             <ru>Макс.</ru>
             <pt>Máximo</pt>
+                    <zh>最大</zh>
+                    <vi>Tối đa</vi>
+            <ko>최대</ko>
         </string>
 
         <string id="MAX_LEVEL_REACHED">
@@ -1588,6 +2047,9 @@
             <fr>Tu as atteint le niveau maximum. La réinitialisation relancera ta progression, mais tu débloqueras un nouveau lot de niveaux aléatoires pour un nouveau défi.</fr>
             <ru>Вы достигли максимального уровня. Сброс приведет к перезапуску прогресса, но вы откроете новый набор случайных уровней для нового испытания.</ru>
             <pt>Você atingiu o nível máximo. A redefinição reiniciará seu progresso, mas você desbloqueará um novo conjunto de níveis aleatórios para um novo desafio.</pt>
+                    <zh>你已达到最高关卡。重置将重新开始你的进度，但你将解锁一组新的随机关卡迎接新挑战。</zh>
+                    <vi>Bạn đã đạt cấp tối đa. Đặt lại sẽ khởi động lại tiến trình, nhưng bạn sẽ mở khóa bộ màn ngẫu nhiên mới để thử thách.</vi>
+            <ko>최고 레벨에 도달했습니다. 초기화하면 진행 상황이 다시 시작되지만, 새로운 무작위 레벨 세트가 잠금 해제되어 새로운 도전을 즐길 수 있습니다.</ko>
         </string>
 
         <string id="RESET_LEVELS">
@@ -1598,6 +2060,9 @@
             <fr>Relancer\nniveaux</fr>
             <ru>Сбросить\nуровни</ru>
             <pt>Redefinir\nníveis</pt>
+                    <zh>重置\n关卡</zh>
+                    <vi>Đặt lại\ncác màn</vi>
+            <ko>레벨\n초기화</ko>
         </string>
 
         <string id="COINS">
@@ -1608,6 +2073,9 @@
             <fr>Monnaies</fr>
             <ru>Монеты</ru>
             <pt>Moedas</pt>
+                    <zh>金币</zh>
+                    <vi>Xu</vi>
+            <ko>코인</ko>
         </string>
 
         <string id="SCORE">
@@ -1618,6 +2086,9 @@
             <fr>Score</fr>
             <ru>Очки</ru>
             <pt>Pontuação</pt>
+                    <zh>分数</zh>
+                    <vi>Điểm</vi>
+            <ko>점수</ko>
         </string>
 
         <string id="RESUME">
@@ -1628,6 +2099,9 @@
             <fr>Continuer</fr>
             <pt>Continuar</pt>
             <ru>Продолжить</ru>
+                    <zh>继续</zh>
+                    <vi>Tiếp tục</vi>
+            <ko>계속</ko>
         </string>
 
         <string id="REVIVE">
@@ -1638,6 +2112,9 @@
             <fr>NAN</fr>
             <ru>NAN</ru>
             <pt>NAN</pt>
+                    <zh>复活</zh>
+                    <vi>Hồi sinh</vi>
+            <ko>부활</ko>
         </string>
 
         <string id="NEW_BLOCK">
@@ -1648,6 +2125,9 @@
             <fr>NAN</fr>
             <ru>NAN</ru>
             <pt>NAN</pt>
+                    <zh>新方块</zh>
+                    <vi>Khối mới</vi>
+            <ko>새 블록</ko>
         </string>
 
         <string id="DOUBLE_REWARD">
@@ -1658,6 +2138,9 @@
             <fr>NAN</fr>
             <ru>NAN</ru>
             <pt>NAN</pt>
+                    <zh>双倍奖励</zh>
+                    <vi>Thưởng gấp đôi</vi>
+            <ko>두 배 보상</ko>
         </string>
 
         <string id="COMPLETED">
@@ -1668,6 +2151,9 @@
             <fr>Terminé</fr>
             <ru>Завершено</ru>
             <pt>Concluído</pt>
+                    <zh>完成</zh>
+                    <vi>Hoàn thành</vi>
+            <ko>완료</ko>
         </string>
 
         <string id="SHUFFLE">
@@ -1678,6 +2164,9 @@
             <fr>Mélanger</fr>
             <ru>Шаффл</ru>
             <pt>Embaralhar</pt>
+                    <zh>洗牌</zh>
+                    <vi>Xáo trộn</vi>
+            <ko>섞기</ko>
         </string>
 
         <string id="SHUFFLE_DESC">
@@ -1688,6 +2177,9 @@
             <fr>Réorganisez la couleur des véhicules dans le parking</fr>
             <ru>Переставляйте цвета автомобилей на парковке</ru>
             <pt>Reorganize a cor dos veículos no estacionamento</pt>
+                    <zh>重新排列停车场中车辆的颜色</zh>
+                    <vi>Sắp xếp lại màu các xe trong bãi đỗ</vi>
+            <ko>주차장 차량의 색을 재배열합니다</ko>
         </string>
 
         <string id="SORT">
@@ -1698,6 +2190,9 @@
             <fr>Trier</fr>
             <ru>Сортировать</ru>
             <pt>Classificar</pt>
+                    <zh>整理</zh>
+                    <vi>Sắp xếp</vi>
+            <ko>정렬</ko>
         </string>
 
         <string id="SORT_DESC">
@@ -1708,6 +2203,9 @@
             <fr>Trier les passagers en fonction de la couleur des véhicules</fr>
             <ru>Отсортируйте пассажиров по цветам автомобилей.</ru>
             <pt>Classifique os passageiros de acordo com as cores dos veículos</pt>
+                    <zh>根据车辆颜色整理乘客</zh>
+                    <vi>Sắp xếp hành khách theo màu xe</vi>
+            <ko>차량 색에 따라 승객을 정렬합니다</ko>
         </string>
 
         <string id="GET_NEW_SPOT">
@@ -1718,6 +2216,9 @@
             <fr>Obtenez une nouvelle place de parking pour continuer à jouer !</fr>
             <ru>Получите новое место для парковки, чтобы продолжить игру!</ru>
             <pt>Obtenha uma nova vaga de estacionamento para continuar jogando!</pt>
+                    <zh>获得一个新停车位以继续游戏！</zh>
+                    <vi>Nhận chỗ đỗ mới để chơi tiếp!</vi>
+            <ko>계속하려면 새 주차 공간을 얻으세요!</ko>
         </string>
 
         <string id="CAR_PARK">
@@ -1728,6 +2229,9 @@
             <fr>Parking</fr>
             <ru>Парковка</ru>
             <pt>Estacionamento</pt>
+                    <zh>停车场</zh>
+                    <vi>Bãi đỗ xe</vi>
+            <ko>주차장</ko>
         </string>
 
         <string id="UNLOCK_CAR_PARK">
@@ -1738,6 +2242,9 @@
             <fr>Déverrouillez 1 place de parking pour l'emplacement de parking</fr>
             <ru>Разблокируйте 1 парковочное место за слот для парковки</ru>
             <pt>Desbloqueie 1 vaga de estacionamento para o espaço de estacionamento</pt>
+                    <zh>解锁1个停车位</zh>
+                    <vi>Mở khóa 1 chỗ đỗ xe</vi>
+            <ko>주차 공간 1칸 잠금 해제</ko>
         </string>
 
         <string id="NO_CAR_TO_SORT">
@@ -1748,6 +2255,9 @@
             <fr>Il n'y a pas de\nvoiture à trier</fr>
             <ru>Нет машины для сортировки</ru>
             <pt>Não há nenhum carro\npara classificar</pt>
+                    <zh>没有可整理的车</zh>
+                    <vi>Không có xe để sắp xếp</vi>
+            <ko>정렬할 차가 없습니다</ko>
         </string>
 
         <string id="VOID">
@@ -1758,6 +2268,9 @@
             <fr></fr>
             <ru></ru>
             <pt></pt>
+                    <zh></zh>
+                    <vi></vi>
+            <ko></ko>
         </string>
 
     </strings>

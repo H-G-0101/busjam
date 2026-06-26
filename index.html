@@ -903,7 +903,7 @@
   };
   freeBtn.addEventListener("click",function(){
     if(busy||jOpen())return; busy=true;
-    if(window.__bjSpotAd){ window.__bjSpotAd(function(ok){ busy=false; if(ok) hide(); }); }
+    if(window.__bjSpotAd){ window.__bjAdLoadShow&&window.__bjAdLoadShow(); window.__bjSpotAd(function(ok){ window.__bjAdLoadHide&&window.__bjAdLoadHide(); busy=false; if(ok) hide(); }); }
     else { busy=false; }
   });
   $("ulClose").addEventListener("click",function(){
@@ -999,7 +999,7 @@
     function hide(){ modal.style.display="none"; }
     function shake(){ if(card){ card.classList.add("bshk"); setTimeout(function(){card.classList.remove("bshk");},440); } }
     buy.addEventListener("click",function(){ if(busy||jOpen())return; var p=parseInt(priceEl.textContent)||0; if(window.__bjBoosterPay)window.__bjBoosterPay(type,p,function(ok){ if(ok)hide(); else shake(); }); });
-    free.addEventListener("click",function(){ if(busy||jOpen())return; busy=true; if(lblEl)lblEl.textContent="..."; function done(){ busy=false; if(lblEl)lblEl.textContent=curFree; hide(); } if(window.__bjBoosterAdRun)window.__bjBoosterAdRun(type,done); else done(); });
+    free.addEventListener("click",function(){ if(busy||jOpen())return; busy=true; if(lblEl)lblEl.textContent="..."; function done(){ window.__bjAdLoadHide&&window.__bjAdLoadHide(); busy=false; if(lblEl)lblEl.textContent=curFree; hide(); } if(window.__bjBoosterAdRun){ window.__bjAdLoadShow&&window.__bjAdLoadShow(); window.__bjBoosterAdRun(type,done); } else done(); });
     x.addEventListener("click",function(){ if(busy||jOpen())return; hide(); if(window.__bjBoosterClose)window.__bjBoosterClose(); });
     modal.addEventListener("click",function(e){ if(e.target===modal){ if(busy||jOpen())return; hide(); if(window.__bjBoosterClose)window.__bjBoosterClose(); } });
     return function(price,title,desc,freeLbl){ busy=false; if(titleEl&&title)titleEl.textContent=title; if(capEl)capEl.textContent=desc||""; if(priceEl)priceEl.textContent=price; curFree=freeLbl||"GRÁTIS"; if(lblEl)lblEl.textContent=curFree; openedAt=Date.now(); modal.style.display="flex"; };
@@ -1148,6 +1148,17 @@
   }
   if(document.readyState!=="loading") buildUI(); else document.addEventListener("DOMContentLoaded", buildUI);
 })();
+</script>
+
+<!-- ===== Overlay global de carregamento de Ad ===== -->
+<style>@keyframes bjAdSpin{to{transform:rotate(360deg)}}</style>
+<div id="bjAdLoading" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(6,20,44,.72);align-items:center;justify-content:center;flex-direction:column;font-family:'Baloo 2','Nunito',sans-serif;">
+  <div style="width:56px;height:56px;border:5px solid rgba(255,255,255,.22);border-top-color:#FFD23F;border-radius:50%;animation:bjAdSpin .9s linear infinite;"></div>
+  <div id="bjAdLoadingTxt" style="margin-top:16px;color:#fff;font-size:18px;font-weight:800;-webkit-text-stroke:1px #1B3A6E;paint-order:stroke fill;">Carregando ad...</div>
+</div>
+<script>
+  var __bjAdLoadTO=null; window.__bjAdLoadShow=function(t){ var e=document.getElementById("bjAdLoading"); if(!e)return; var x=document.getElementById("bjAdLoadingTxt"); if(x&&t)x.textContent=t; e.style.display="flex"; if(__bjAdLoadTO)clearTimeout(__bjAdLoadTO); __bjAdLoadTO=setTimeout(function(){ window.__bjAdLoadHide&&window.__bjAdLoadHide(); },190000); };
+  window.__bjAdLoadHide=function(){ if(__bjAdLoadTO){clearTimeout(__bjAdLoadTO);__bjAdLoadTO=null;} var e=document.getElementById("bjAdLoading"); if(e) e.style.display="none"; };
 </script>
 
 </body>

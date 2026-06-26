@@ -1109,6 +1109,7 @@
     }
   };
 
+  window.__bjAdLog=function(name,ok,detail){ try{ log("AD: "+name, ok, detail); }catch(e){} };
   function boot(){
     log("boot",true,"sdk="+sdkReady()+" token="+hasTempToken()+" apiKey="+apiKeySet());
     login().then(function(ok){ if(!ok)return; try{ var lv=(typeof ActiveLevel!=="undefined")?(ActiveLevel+1):(window.ActiveLevel!=null?window.ActiveLevel+1:0); if(lv) window.__bjCidi.reconcileMedal(lv); }catch(e){} });
@@ -1139,7 +1140,7 @@
     function render(){
       var s=window.__bjCidi.status();
       statusEl.innerHTML="SDK carregado: "+(s.sdk?"✅":"❌")+"  |  tempToken: "+(s.tempToken?"✅":"❌")+"  |  apiKey: "+(s.apiKey?"✅":"❌")+"  |  logado: "+(s.loggedIn?"✅":"❌")+"  |  medalLevel: "+s.medalLevel;
-      logEl.textContent=LOG.slice().reverse().map(function(e){ return "["+e.t+"] "+(e.ok?"✅":"❌")+" "+e.name+(e.detail?(" — "+e.detail):""); }).join("\n") || "(sem eventos ainda)";
+      logEl.textContent=LOG.slice().reverse().map(function(e){ return "["+e.t+"] "+(e.ok===true?"✅":e.ok===false?"❌":"ℹ️")+" "+e.name+(e.detail?(" — "+e.detail):""); }).join("\n") || "(sem eventos ainda)";
     }
     window.__bjCidiRender=render;
     fab.onclick=function(){ panel.style.display=(panel.style.display==="none")?"block":"none"; render(); };

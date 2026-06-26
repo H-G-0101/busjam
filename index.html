@@ -565,7 +565,8 @@
 
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js"></script>
-    <script src="js/game.js?v=cidi83"></script>
+    <script src="https://elf-resource.cidi.games/sdk/cidi-proxy-sdk.umd.js"></script>
+    <script src="js/game.js?v=cidi84"></script>
         
 
 
@@ -1008,6 +1009,143 @@
     if(type==="shuffle") showShuffle(price,title,desc,freeLbl);
     else if(type==="sort") showSort(price,title,desc,freeLbl);
   };
+})();
+</script>
+
+<!-- ===== Diagnóstico CiDi SDK (abra com ?cididump=1) - pode remover depois ===== -->
+<script>
+(function(){
+  try{
+    if(!/[?&]cididump=1/.test(location.search)) return;
+    var box=document.createElement("div");
+    box.style.cssText="position:fixed;inset:8px;z-index:99999;background:#0b1626;color:#cfe;font:12px/1.45 monospace;padding:12px;overflow:auto;border:2px solid #4FA0F0;border-radius:10px;white-space:pre-wrap;";
+    box.textContent="[CiDi dump] aguardando window.CiDiSDK...";
+    document.body.appendChild(box);
+    function describe(obj,depth){
+      var out=[], seen;
+      function keys(o){ var k=[]; try{ for(var p in o) k.push(p); }catch(e){} try{ k=k.concat(Object.getOwnPropertyNames(o)); }catch(e){} try{ var pr=Object.getPrototypeOf(o); if(pr&&pr!==Object.prototype) k=k.concat(Object.getOwnPropertyNames(pr)); }catch(e){} return k.filter(function(v,i,a){return a.indexOf(v)===i;}); }
+      function dump(o,prefix,d){
+        keys(o).sort().forEach(function(k){
+          if(k==="constructor")return;
+          var t="?"; try{ t=typeof o[k]; }catch(e){ t="(err)"; }
+          out.push(prefix+k+" : "+t);
+          if(d>0 && t==="object" && o[k] && prefix.split(".").length<3){ try{ dump(o[k],prefix+k+".",d-1); }catch(e){} }
+        });
+      }
+      dump(obj,"CiDiSDK.",depth);
+      return out.join("\n");
+    }
+    var tries=0, t=setInterval(function(){
+      tries++;
+      if(window.CiDiSDK){
+        clearInterval(t);
+        var txt="[CiDi SDK] métodos disponíveis:\n\n"+describe(window.CiDiSDK,1);
+        box.textContent=txt; console.log(txt);
+      } else if(tries>40){ clearInterval(t); box.textContent="[CiDi dump] window.CiDiSDK não apareceu em 12s."; }
+    },300);
+    box.addEventListener("click",function(){ box.remove(); });
+  }catch(e){}
+})();
+</script>
+
+<!-- ===== CiDi Proxy SDK (medal / tournament / task) + DEBUG ===== -->
+<script>
+(function(){
+  /* ====== CONFIG ====== */
+  var APIKEY  = "CIDI_C9684527EA72462A";
+  var BASEURL = "https://elf-proxy.cidi.games/api/v1";
+  window.__bjCidiMedalLevel = 3;   /* TESTE: medalha ao chegar no nivel 3 */
+  /* ==================== */
+
+  var client=null, loggedIn=false, loginPromise=null, medalDone=false, LOG=[];
+  function nowts(){ try{return new Date().toLocaleTimeString();}catch(e){return "";} }
+  function log(name, ok, detail){ LOG.push({t:nowts(), name:name, ok:ok, detail:(detail==null?"":(""+detail))}); if(LOG.length>60)LOG.shift(); try{console.log("[CiDi]",name,ok?"OK":"FAIL",detail||"");}catch(e){} if(window.__bjCidiRender)try{window.__bjCidiRender();}catch(e){} }
+  function errStr(e){ try{ return (e&&(e.code||e.message))?((e.code||"")+" "+(e.message||"")):JSON.stringify(e); }catch(_){ return "erro"; } }
+  function hasTempToken(){ try{ return /[?&]tempToken=/.test(location.search); }catch(e){ return false; } }
+  function sdkReady(){ return (typeof CidiProxySDK!=="undefined") && CidiProxySDK && typeof CidiProxySDK.createClient==="function"; }
+  function apiKeySet(){ return APIKEY && APIKEY.indexOf("__CIDI")!==0; }
+  function ensureClient(){
+    if(client) return client;
+    if(!sdkReady()){ log("createClient",false,"CidiProxySDK ausente"); return null; }
+    try{ client=CidiProxySDK.createClient({ baseURL:BASEURL, apiKey:APIKEY }); log("createClient",true,"ok"); }catch(e){ client=null; log("createClient",false,errStr(e)); }
+    return client;
+  }
+  function login(){
+    if(loggedIn) return Promise.resolve(true);
+    if(loginPromise) return loginPromise;
+    var c=ensureClient();
+    if(!c){ return Promise.resolve(false); }
+    if(!hasTempToken()){ log("login",false,"sem tempToken na URL"); return Promise.resolve(false); }
+    loginPromise = c.auth.login().then(function(ok){ loggedIn=!!ok; log("login",loggedIn,loggedIn?"logado":"retornou falso"); return loggedIn; })
+                    .catch(function(e){ loggedIn=false; loginPromise=null; log("login",false,errStr(e)); return false; });
+    return loginPromise;
+  }
+  function withLogin(name, fn){
+    return login().then(function(ok){ if(!ok){ log(name,false,"sem login"); return false; }
+      try{ return fn().then(function(r){ log(name,true,(typeof r==="object")?JSON.stringify(r):"ok"); return r; })
+                      .catch(function(e){ log(name,false,errStr(e)); return false; }); }
+      catch(e){ log(name,false,errStr(e)); return false; }
+    });
+  }
+  function todayBiz(){ var d=new Date(); function p(n){return (n<10?"0":"")+n;} return ""+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate()); }
+
+  window.__bjCidi = {
+    _log: LOG,
+    status:function(){ return { sdk:sdkReady(), tempToken:hasTempToken(), apiKey:apiKeySet(), loggedIn:loggedIn, medalLevel:window.__bjCidiMedalLevel }; },
+    login: login,
+    reportTournament:function(score){ return withLogin("tournamentScore("+score+")", function(){ return client.report.tournamentScore({ score:String(score), reportedAt:Math.floor(Date.now()/1000) }); }); },
+    reportTask:function(meta){ return withLogin("gameTask", function(){ return client.report.gameTask({ completeTime:Math.floor(Date.now()/1000), metadata:JSON.stringify(meta||{}) }); }); },
+    taskResult:function(bizDate){ return withLogin("gameTaskResult", function(){ return client.report.gameTaskResult({ bizDate: bizDate||todayBiz() }); }); },
+    claimMedal:function(){ return withLogin("medal(claim)", function(){ return client.report.medal(); }); },
+    medalOwned:function(){ return withLogin("medalOwnership", function(){ return client.report.medalOwnership(); }); },
+    reconcileMedal:function(reachedLevel){
+      if(medalDone) return Promise.resolve(true);
+      var cond=window.__bjCidiMedalLevel||3;
+      if(!reachedLevel || reachedLevel<cond){ return Promise.resolve(false); }
+      return this.medalOwned().then(function(r){
+        if(r===true||(r&&(r.owned===true||r.owned===1||r.hasOwned===true))){ medalDone=true; log("reconcileMedal",true,"ja possui"); return true; }
+        return window.__bjCidi.claimMedal().then(function(ok){ if(ok)medalDone=true; return ok; });
+      });
+    }
+  };
+
+  function boot(){
+    log("boot",true,"sdk="+sdkReady()+" token="+hasTempToken()+" apiKey="+apiKeySet());
+    login().then(function(ok){ if(!ok)return; try{ var lv=(typeof ActiveLevel!=="undefined")?(ActiveLevel+1):(window.ActiveLevel!=null?window.ActiveLevel+1:0); if(lv) window.__bjCidi.reconcileMedal(lv); }catch(e){} });
+  }
+  if(document.readyState!=="loading") setTimeout(boot,500); else document.addEventListener("DOMContentLoaded",function(){ setTimeout(boot,500); });
+
+  /* ================= DEBUG UI (remover depois) ================= */
+  function mkbtn(label, fn){ var b=document.createElement("button"); b.textContent=label; b.style.cssText="margin:3px;padding:7px 9px;border:none;border-radius:7px;background:#2E7FDC;color:#fff;font:700 12px sans-serif;cursor:pointer;"; b.onclick=fn; return b; }
+  function buildUI(){
+    var fab=document.createElement("div");
+    fab.textContent="🐞 CiDi";
+    fab.style.cssText="position:fixed;left:8px;bottom:8px;z-index:99998;background:#0b1626;color:#7FE0FF;font:700 12px sans-serif;padding:8px 11px;border:2px solid #4FA0F0;border-radius:20px;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.4);";
+    document.body.appendChild(fab);
+    var panel=document.createElement("div");
+    panel.style.cssText="display:none;position:fixed;left:8px;right:8px;bottom:46px;max-height:62vh;z-index:99999;background:#0b1626;color:#cfe;font:12px/1.4 monospace;padding:10px;overflow:auto;border:2px solid #4FA0F0;border-radius:10px;";
+    document.body.appendChild(panel);
+    var statusEl=document.createElement("div"); statusEl.style.cssText="margin-bottom:6px;color:#9fe;";
+    var btnRow=document.createElement("div"); btnRow.style.cssText="margin-bottom:8px;";
+    var logEl=document.createElement("div"); logEl.style.cssText="white-space:pre-wrap;border-top:1px solid #234;padding-top:6px;";
+    panel.appendChild(statusEl); panel.appendChild(btnRow); panel.appendChild(logEl);
+    btnRow.appendChild(mkbtn("Login", function(){ window.__bjCidi.login(); }));
+    btnRow.appendChild(mkbtn("Torneio 999", function(){ window.__bjCidi.reportTournament(999); }));
+    btnRow.appendChild(mkbtn("Task", function(){ window.__bjCidi.reportTask({debug:true}); }));
+    btnRow.appendChild(mkbtn("Task Result", function(){ window.__bjCidi.taskResult(); }));
+    btnRow.appendChild(mkbtn("Claim Medal", function(){ window.__bjCidi.claimMedal(); }));
+    btnRow.appendChild(mkbtn("Medal Owned?", function(){ window.__bjCidi.medalOwned(); }));
+    btnRow.appendChild(mkbtn("Limpar log", function(){ LOG.length=0; render(); }));
+    function render(){
+      var s=window.__bjCidi.status();
+      statusEl.innerHTML="SDK carregado: "+(s.sdk?"✅":"❌")+"  |  tempToken: "+(s.tempToken?"✅":"❌")+"  |  apiKey: "+(s.apiKey?"✅":"❌")+"  |  logado: "+(s.loggedIn?"✅":"❌")+"  |  medalLevel: "+s.medalLevel;
+      logEl.textContent=LOG.slice().reverse().map(function(e){ return "["+e.t+"] "+(e.ok?"✅":"❌")+" "+e.name+(e.detail?(" — "+e.detail):""); }).join("\n") || "(sem eventos ainda)";
+    }
+    window.__bjCidiRender=render;
+    fab.onclick=function(){ panel.style.display=(panel.style.display==="none")?"block":"none"; render(); };
+    render();
+  }
+  if(document.readyState!=="loading") buildUI(); else document.addEventListener("DOMContentLoaded", buildUI);
 })();
 </script>
 

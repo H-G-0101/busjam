@@ -566,7 +566,7 @@
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js?v=20260427-expose-init-await-pi-init-1"></script>
     <script src="https://elf-resource.cidi.games/sdk/cidi-proxy-sdk.umd.js"></script>
-    <script src="js/game.js?v=cidi88"></script>
+    <script src="js/game.js?v=cidi91"></script>
         
 
 
@@ -1110,11 +1110,24 @@
   };
 
   window.__bjAdLog=function(name,ok,detail){ try{ log("AD: "+name, ok, detail); }catch(e){} };
+  var __adInitStarted=false;
+  function initAdSdk(tries){
+    if(__adInitStarted) return;
+    tries=tries||0;
+    if(self.CiDiSDK && typeof self.CiDiSDK.init==="function"){
+      __adInitStarted=true;
+      try{ log("CiDiSDK.init() chamado",null,""); self.CiDiSDK.init().then(function(){ log("CiDiSDK.init() OK",true,"Pi/storage pronto"); }).catch(function(e){ log("CiDiSDK.init() falhou",false,errStr(e)); }); }
+      catch(e){ log("CiDiSDK.init excecao",false,errStr(e)); }
+      return;
+    }
+    if(tries<40){ setTimeout(function(){ initAdSdk(tries+1); }, 300); }
+    else { log("CiDiSDK.init",false,"init() ausente / SDK nao carregou"); }
+  }
   function boot(){
     log("boot",true,"sdk="+sdkReady()+" token="+hasTempToken()+" apiKey="+apiKeySet());
     login().then(function(ok){ if(!ok)return; try{ var lv=(typeof ActiveLevel!=="undefined")?(ActiveLevel+1):(window.ActiveLevel!=null?window.ActiveLevel+1:0); if(lv) window.__bjCidi.reconcileMedal(lv); }catch(e){} });
   }
-  if(document.readyState!=="loading") setTimeout(boot,500); else document.addEventListener("DOMContentLoaded",function(){ setTimeout(boot,500); });
+  initAdSdk(); if(document.readyState!=="loading") setTimeout(boot,500); else document.addEventListener("DOMContentLoaded",function(){ initAdSdk(); setTimeout(boot,500); });
 
   /* ================= DEBUG UI (remover depois) ================= */
   function mkbtn(label, fn){ var b=document.createElement("button"); b.textContent=label; b.style.cssText="margin:3px;padding:7px 9px;border:none;border-radius:7px;background:#2E7FDC;color:#fff;font:700 12px sans-serif;cursor:pointer;"; b.onclick=fn; return b; }
@@ -1163,7 +1176,7 @@
 
 <!-- ===== Encolher todos os modais proporcionalmente ===== -->
 <style>
-  :root{ --bj-modal-zoom: 0.85; }
+  :root{ --bj-modal-zoom: 0.80; }
   #completeModal > div,
   #continueModal > div,
   #failModal > div,

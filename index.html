@@ -378,6 +378,8 @@
             { coins:700,  ads:4 },
             { coins:1500, ads:8 }
         ];
+        function saveShopProg(){ try{ var o={}; for(var i=0;i<PACKS.length;i++) o[i]=PACKS[i]._watched||0; localStorage.setItem("bjShopAdProg", JSON.stringify(o)); }catch(e){} }
+        function loadShopProg(){ try{ var o=JSON.parse(localStorage.getItem("bjShopAdProg")||"{}")||{}; for(var i=0;i<PACKS.length;i++){ if(typeof o[i]==="number") PACKS[i]._watched=o[i]; } }catch(e){} }
         var modal, list, balEl, loadEl, loadTxt, busy=false, fcOpenedAt=0;
         function fcJustOpened(){ return Date.now()-fcOpenedAt < 350; }
 
@@ -406,10 +408,10 @@
                     var wait=Math.max(0, 1000-(Date.now()-t0));
                     setTimeout(function(){
                         if(ok){
-                            pack._watched++;
+                            pack._watched++; saveShopProg();
                             if(pack._watched>=pack.ads){
                                 if(window.__bjAddCoins) window.__bjAddCoins(pack.coins);
-                                refreshBal(); pack._watched=0;
+                                refreshBal(); pack._watched=0; saveShopProg();
                             }
                         }
                         hideLoad(); busy=false; updateBtn(btn, pack);
@@ -442,7 +444,7 @@
             if(close) close.addEventListener("click", window.__bjHideFreeCoins);
             if(modal) modal.addEventListener("click", function(e){ if(e.target===modal) window.__bjHideFreeCoins(); });
         }
-        window.__bjShowFreeCoins=function(){ if(!modal) return; refreshBal(); modal.style.display="flex"; fcOpenedAt=Date.now(); };
+        window.__bjShowFreeCoins=function(){ if(!modal) return; loadShopProg(); build(); refreshBal(); modal.style.display="flex"; fcOpenedAt=Date.now(); };
         window.__bjHideFreeCoins=function(){ if(busy||fcJustOpened()) return; if(modal) modal.style.display="none"; };
         if(document.readyState!=="loading") init(); else document.addEventListener("DOMContentLoaded",init);
     })();
@@ -580,7 +582,7 @@
       } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
     }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
-    <script src="js/game.js?v=cidi95"></script>
+    <script src="js/game.js?v=cidi96"></script>
         
 
 

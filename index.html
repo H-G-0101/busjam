@@ -576,11 +576,11 @@
       if(window.CiDiSDK && typeof window.CiDiSDK.init==="function"){
         window.__bjEarlyInitStarted=true;
         console.log("[CiDiSDK] init() chamado (antes do game)");
-        window.CiDiSDK.init().then(function(){ window.__bjEarlyInitOk=true; console.log("[CiDiSDK] init() OK (storage pronto)"); }).catch(function(e){ window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() falhou", e); });
+        window.CiDiSDK.init().then(function(){ window.__bjEarlyInitOk=true; window.__bjStorageReady=true; console.log("[CiDiSDK] init() OK (storage pronto)"); try{ if(typeof window.__bjOnStorageReady==="function") window.__bjOnStorageReady(); }catch(e){} }).catch(function(e){ window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() falhou", e); });
       } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
     }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
-    <script src="js/game.js?v=cidi94"></script>
+    <script src="js/game.js?v=cidi95"></script>
         
 
 

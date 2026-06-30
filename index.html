@@ -570,22 +570,17 @@
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js?v=20260427-expose-init-await-pi-init-1"></script>
     <script src="https://elf-resource.cidi.games/sdk/cidi-proxy-sdk.umd.js"></script>
-    <!-- CiDi: roda init() (storage do Pi Browser) ANTES do game.js, e so carrega o jogo depois -> localStorage persiste -->
+    <!-- CiDi: init() (storage do Pi Browser) chamado ANTES do game.js -->
     <script>
-    (function(){
-      window.__bjEarlyInitStarted=true;
-      function loadGame(){ if(window.__bjGameLoaded)return; window.__bjGameLoaded=true; var s=document.createElement("script"); s.src="js/game.js?v=cidi94"; (document.body||document.head||document.documentElement).appendChild(s); }
-      var done=false; function go(why){ if(done)return; done=true; try{console.log("[CiDi] carregando game ("+why+")");}catch(e){} loadGame(); }
-      try{
-        if(window.CiDiSDK && typeof window.CiDiSDK.init==="function"){
-          console.log("[CiDiSDK] init() chamado (ANTES do game)");
-          window.CiDiSDK.init().then(function(){ window.__bjEarlyInitOk=true; console.log("[CiDiSDK] init() OK (storage pronto)"); go("init-ok"); })
-                               .catch(function(e){ window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() falhou", e); go("init-fail"); });
-          setTimeout(function(){ go("init-timeout"); }, 8000);
-        } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente -> carregando game mesmo assim"); go("sem-init"); }
-      }catch(e){ window.__bjEarlyInitOk=false; go("excecao"); }
-    })();
+    try{
+      if(window.CiDiSDK && typeof window.CiDiSDK.init==="function"){
+        window.__bjEarlyInitStarted=true;
+        console.log("[CiDiSDK] init() chamado (antes do game)");
+        window.CiDiSDK.init().then(function(){ window.__bjEarlyInitOk=true; console.log("[CiDiSDK] init() OK (storage pronto)"); }).catch(function(e){ window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() falhou", e); });
+      } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
+    }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
+    <script src="js/game.js?v=cidi94"></script>
         
 
 

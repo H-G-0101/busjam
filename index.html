@@ -570,7 +570,22 @@
 
     <script src="https://app.cidi.games/sdk/cidi-sdk.js?v=20260427-expose-init-await-pi-init-1"></script>
     <script src="https://elf-resource.cidi.games/sdk/cidi-proxy-sdk.umd.js"></script>
-    <script src="js/game.js?v=cidi93"></script>
+    <!-- CiDi: roda init() (storage do Pi Browser) ANTES do game.js, e so carrega o jogo depois -> localStorage persiste -->
+    <script>
+    (function(){
+      window.__bjEarlyInitStarted=true;
+      function loadGame(){ if(window.__bjGameLoaded)return; window.__bjGameLoaded=true; var s=document.createElement("script"); s.src="js/game.js?v=cidi94"; (document.body||document.head||document.documentElement).appendChild(s); }
+      var done=false; function go(why){ if(done)return; done=true; try{console.log("[CiDi] carregando game ("+why+")");}catch(e){} loadGame(); }
+      try{
+        if(window.CiDiSDK && typeof window.CiDiSDK.init==="function"){
+          console.log("[CiDiSDK] init() chamado (ANTES do game)");
+          window.CiDiSDK.init().then(function(){ window.__bjEarlyInitOk=true; console.log("[CiDiSDK] init() OK (storage pronto)"); go("init-ok"); })
+                               .catch(function(e){ window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() falhou", e); go("init-fail"); });
+          setTimeout(function(){ go("init-timeout"); }, 8000);
+        } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente -> carregando game mesmo assim"); go("sem-init"); }
+      }catch(e){ window.__bjEarlyInitOk=false; go("excecao"); }
+    })();
+    </script>
         
 
 
@@ -1114,18 +1129,13 @@
   };
 
   window.__bjAdLog=function(name,ok,detail){ try{ log("AD: "+name, ok, detail); }catch(e){} };
-  var __adInitStarted=false;
-  function initAdSdk(tries){
-    if(__adInitStarted) return;
-    tries=tries||0;
-    if(self.CiDiSDK && typeof self.CiDiSDK.init==="function"){
-      __adInitStarted=true;
-      try{ log("CiDiSDK.init() chamado",null,""); self.CiDiSDK.init().then(function(){ log("CiDiSDK.init() OK",true,"Pi/storage pronto"); }).catch(function(e){ log("CiDiSDK.init() falhou",false,errStr(e)); }); }
-      catch(e){ log("CiDiSDK.init excecao",false,errStr(e)); }
-      return;
-    }
-    if(tries<40){ setTimeout(function(){ initAdSdk(tries+1); }, 300); }
-    else { log("CiDiSDK.init",false,"init() ausente / SDK nao carregou"); }
+  function initAdSdk(){
+    /* init() agora roda no loader, ANTES do game.js. Aqui so reflete o status no painel. */
+    try{
+      if(window.__bjEarlyInitOk===true) log("CiDiSDK.init()",true,"Pi/storage pronto (boot inicial)");
+      else if(window.__bjEarlyInitOk===false) log("CiDiSDK.init()",false,"falhou no boot inicial");
+      else { log("CiDiSDK.init()",null,"rodando no boot inicial..."); setTimeout(initAdSdk,800); }
+    }catch(e){}
   }
   function boot(){
     log("boot",true,"sdk="+sdkReady()+" token="+hasTempToken()+" apiKey="+apiKeySet());

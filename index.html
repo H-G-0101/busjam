@@ -582,7 +582,7 @@
       } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
     }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
-    <script src="js/game.js?v=cidi120"></script>
+    <script src="js/game.js?v=cidi122"></script>
         
 
 
@@ -731,7 +731,7 @@
     if(modal) modal.style.display="flex";
     spinning=true; spin();
   };
-  function collect(){ if(stopped)return; stop(); stopped=true; render(); var amt=base*MULTS[sel]; if(modal)modal.style.display="none"; if(window.__bjCompleteAd)window.__bjCompleteAd(amt); }
+  function collect(){ if(stopped)return; stop(); stopped=true; render(); var amt=base*MULTS[sel]; setTimeout(function(){ if(modal)modal.style.display="none"; if(window.__bjCompleteAd)window.__bjCompleteAd(amt); }, 1500); }
   function cont(){ if(stopped)return; stop(); stopped=true; if(modal)modal.style.display="none"; if(window.__bjCompleteContinue)window.__bjCompleteContinue(); }
   document.getElementById("cmCollect").addEventListener("click",collect);
   document.getElementById("cmContinue").addEventListener("click",cont);

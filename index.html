@@ -401,7 +401,7 @@
             if(busy||fcJustOpened()) return; busy=true;
             if(btn) btn.disabled=true;
             if(typeof pack._watched!=="number") pack._watched=0;
-            showLoad("Loading ad "+(pack._watched+1)+"/"+pack.ads);
+            showLoad(((window.__bjStr&&window.__bjStr("LOADING"))||"Loading")+" "+(pack._watched+1)+"/"+pack.ads);
             var t0=Date.now();
             if(window.__bjWatchAd){
                 window.__bjWatchAd(function(ok){
@@ -582,7 +582,7 @@
       } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
     }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
-    <script src="js/game.js?v=cidi97"></script>
+    <script src="js/game.js?v=cidi98"></script>
         
 
 
@@ -1178,10 +1178,10 @@
 <style>@keyframes bjAdSpin{to{transform:rotate(360deg)}}</style>
 <div id="bjAdLoading" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(6,20,44,.72);align-items:center;justify-content:center;flex-direction:column;font-family:'Baloo 2','Nunito',sans-serif;">
   <div style="width:56px;height:56px;border:5px solid rgba(255,255,255,.22);border-top-color:#FFD23F;border-radius:50%;animation:bjAdSpin .9s linear infinite;"></div>
-  <div id="bjAdLoadingTxt" style="margin-top:16px;color:#fff;font-size:18px;font-weight:800;-webkit-text-stroke:1px #1B3A6E;paint-order:stroke fill;">Carregando ad...</div>
+  <div id="bjAdLoadingTxt" style="margin-top:16px;color:#fff;font-size:18px;font-weight:800;-webkit-text-stroke:1px #1B3A6E;paint-order:stroke fill;">Loading…</div>
 </div>
 <script>
-  var __bjAdLoadTO=null; window.__bjAdLoadShow=function(t){ var e=document.getElementById("bjAdLoading"); if(!e)return; var x=document.getElementById("bjAdLoadingTxt"); if(x&&t)x.textContent=t; e.style.display="flex"; if(__bjAdLoadTO)clearTimeout(__bjAdLoadTO); __bjAdLoadTO=setTimeout(function(){ window.__bjAdLoadHide&&window.__bjAdLoadHide(); },190000); };
+  var __bjAdLoadTO=null; window.__bjAdLoadShow=function(t){ var e=document.getElementById("bjAdLoading"); if(!e)return; var x=document.getElementById("bjAdLoadingTxt"); if(x){ var s=t; if(!s){ try{ s=((window.__bjStr&&window.__bjStr("LOADING"))||"Loading")+"\u2026"; }catch(_){ s="Loading\u2026"; } } x.textContent=s; } e.style.display="flex"; if(__bjAdLoadTO)clearTimeout(__bjAdLoadTO); __bjAdLoadTO=setTimeout(function(){ window.__bjAdLoadHide&&window.__bjAdLoadHide(); },190000); };
   window.__bjAdLoadHide=function(){ if(__bjAdLoadTO){clearTimeout(__bjAdLoadTO);__bjAdLoadTO=null;} var e=document.getElementById("bjAdLoading"); if(e) e.style.display="none"; };
 </script>
 

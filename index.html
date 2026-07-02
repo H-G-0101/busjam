@@ -173,6 +173,14 @@
         #boosterModal .bm-foot .i{ width:17px; height:17px; border-radius:50%; border:2px solid #D8E6FA; font-size:11px; line-height:14px; font-weight:900; }
         </style>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap" rel="stylesheet">
+    <!-- esconder botoes de debug: vConsole + botao CiDi (joaninha) -->
+    <style id="bj-hide-debug">
+      .vc-switch, #__vconsole .vc-switch { display:none !important; }
+      /* botao de debug do SDK CiDi (joaninha, canto inferior esquerdo) */
+      [class*="cidi-debug"], [id*="cidi-debug"],
+      [class*="debug-entry"], [id*="debug-entry"],
+      [class*="vconsole-switch"], .cidi-sdk-debug, #cidiDebugBtn { display:none !important; }
+    </style>
 </head>
 <body>
 
@@ -582,7 +590,7 @@
       } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
     }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
-    <script src="js/game.js?v=cidi124"></script>
+    <script src="js/game.js?v=cidi126"></script>
         
 
 
@@ -1198,5 +1206,28 @@
   #mSort .bb-card { zoom: var(--bj-modal-zoom); }
 </style>
 
+    <!-- esconde o botao de debug da CiDi (joaninha) mesmo sendo injetado pelo SDK em runtime -->
+    <script id="bj-hide-cidi-debug">
+    (function(){
+      function hideDebug(){
+        try{
+          // vConsole
+          document.querySelectorAll(".vc-switch").forEach(function(el){ el.style.display="none"; });
+          // botao flutuante com texto "CiDi"
+          document.querySelectorAll("body *").forEach(function(el){
+            if(el.children.length>3) return;
+            var t=(el.textContent||"").trim();
+            if(t==="CiDi"||t==="cidi"){
+              var cs=getComputedStyle(el);
+              if(cs.position==="fixed"||cs.position==="absolute"){ el.style.display="none"; }
+            }
+          });
+        }catch(e){}
+      }
+      hideDebug();
+      var tries=0, iv=setInterval(function(){ hideDebug(); if(++tries>40) clearInterval(iv); }, 500);
+      try{ new MutationObserver(hideDebug).observe(document.body,{childList:true,subtree:true}); }catch(e){}
+    })();
+    </script>
 </body>
 </html>

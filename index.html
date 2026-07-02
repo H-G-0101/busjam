@@ -590,7 +590,7 @@
       } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
     }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
-    <script src="js/game.js?v=cidi126"></script>
+    <script src="js/game.js?v=cidi127"></script>
         
 
 
@@ -1209,24 +1209,37 @@
     <!-- esconde o botao de debug da CiDi (joaninha) mesmo sendo injetado pelo SDK em runtime -->
     <script id="bj-hide-cidi-debug">
     (function(){
+      function isFloating(el){ try{ var cs=getComputedStyle(el); return cs.position==="fixed"||cs.position==="absolute"; }catch(e){ return false; } }
+      function smallish(el){ try{ var r=el.getBoundingClientRect(); return r.width>0 && r.width<240 && r.height>0 && r.height<150; }catch(e){ return false; } }
       function hideDebug(){
         try{
           // vConsole
-          document.querySelectorAll(".vc-switch").forEach(function(el){ el.style.display="none"; });
-          // botao flutuante com texto "CiDi"
-          document.querySelectorAll("body *").forEach(function(el){
-            if(el.children.length>3) return;
-            var t=(el.textContent||"").trim();
-            if(t==="CiDi"||t==="cidi"){
-              var cs=getComputedStyle(el);
-              if(cs.position==="fixed"||cs.position==="absolute"){ el.style.display="none"; }
+          document.querySelectorAll(".vc-switch,[id^=__vconsole] .vc-switch").forEach(function(el){ el.style.setProperty("display","none","important"); });
+          // botao de debug da CiDi: texto contem "cidi", elemento pequeno e flutuante
+          var all=document.querySelectorAll("body *");
+          for(var i=0;i<all.length;i++){
+            var el=all[i];
+            if(el.id==="bj-hide-cidi-debug") continue;
+            if(el.childElementCount>4) continue;
+            var t=(el.textContent||"").trim().toLowerCase();
+            if(t && t.length<=12 && t.indexOf("cidi")>=0 && t.indexOf("nível")<0 && t.indexOf("nivel")<0){
+              if(smallish(el)){
+                // sobe ate o ancestral flutuante e esconde o bloco todo
+                var target=el;
+                for(var k=0;k<4 && target.parentElement;k++){
+                  if(isFloating(target)) break;
+                  target=target.parentElement;
+                }
+                (isFloating(target)?target:el).style.setProperty("display","none","important");
+              }
             }
-          });
+          }
         }catch(e){}
       }
       hideDebug();
-      var tries=0, iv=setInterval(function(){ hideDebug(); if(++tries>40) clearInterval(iv); }, 500);
-      try{ new MutationObserver(hideDebug).observe(document.body,{childList:true,subtree:true}); }catch(e){}
+      var tries=0, iv=setInterval(function(){ hideDebug(); if(++tries>60) clearInterval(iv); }, 400);
+      try{ new MutationObserver(hideDebug).observe(document.documentElement,{childList:true,subtree:true}); }catch(e){}
+      window.addEventListener("load", hideDebug);
     })();
     </script>
 </body>

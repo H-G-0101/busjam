@@ -590,7 +590,7 @@
       } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
     }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
-    <script src="js/game.js?v=cidi130"></script>
+    <script src="js/game.js?v=cidi131"></script>
         
 
 
@@ -1199,7 +1199,7 @@
     fab.onclick=function(){ panel.style.display=(panel.style.display==="none")?"block":"none"; render(); };
     render();
   }
-  if(document.readyState!=="loading") buildUI(); else document.addEventListener("DOMContentLoaded", buildUI);
+  /* DEBUG UI desativado para release do evento CiDi: */ /* if(document.readyState!=="loading") buildUI(); else document.addEventListener("DOMContentLoaded", buildUI); */
 })();
 </script>
 

@@ -590,7 +590,7 @@
       } else { window.__bjEarlyInitOk=false; console.warn("[CiDiSDK] init() ausente"); }
     }catch(e){ window.__bjEarlyInitOk=false; }
     </script>
-    <script src="js/game.js?v=cidi128"></script>
+    <script src="js/game.js?v=cidi130"></script>
         
 
 
@@ -1113,12 +1113,33 @@
   }
   function todayBiz(){ var d=new Date(); function p(n){return (n<10?"0":"")+n;} return ""+d.getFullYear()+p(d.getMonth()+1)+p(d.getDate()); }
 
+  /* ==== retry + pending-flush do score de torneio (evento CiDi) ==== */
+  var LS_BEST="bj_tour_best", LS_CONF="bj_tour_conf";
+  function lsNum(k){ try{ return parseInt(localStorage.getItem(k)||"0",10)||0; }catch(e){ return 0; } }
+  function lsPut(k,v){ try{ localStorage.setItem(k,String(v)); }catch(e){} }
+  function withRetry(fn, attempts, delay){
+    attempts=attempts||4; delay=delay||1500;
+    return new Promise(function(resolve){
+      function go(n){
+        Promise.resolve().then(fn).then(function(r){
+          if(r){ resolve(r); }
+          else if(n<attempts){ setTimeout(function(){ go(n+1); }, delay*n); }
+          else resolve(false);
+        }).catch(function(){ if(n<attempts){ setTimeout(function(){ go(n+1); }, delay*n); } else resolve(false); });
+      }
+      go(1);
+    });
+  }
+  function flushPendingTournament(){
+    var best=lsNum(LS_BEST), conf=lsNum(LS_CONF);
+    if(best>0 && best>conf){ log("tournament flush pendente",null,"best="+best+" conf="+conf); try{ window.__bjCidi.reportTournament(best); }catch(e){} }
+  }
   window.__bjCidi = {
     _log: LOG,
     status:function(){ return { sdk:sdkReady(), tempToken:hasTempToken(), apiKey:apiKeySet(), loggedIn:loggedIn, medalLevel:window.__bjCidiMedalLevel }; },
     login: login,
-    reportTournament:function(score){ return withLogin("tournamentScore("+score+")", function(){ return client.report.tournamentScore({ score:String(score), reportedAt:Math.floor(Date.now()/1000) }); }); },
-    reportTask:function(meta){ return withLogin("gameTask", function(){ return client.report.gameTask({ completeTime:Math.floor(Date.now()/1000), metadata:JSON.stringify(meta||{}) }); }); },
+    reportTournament:function(score){ score=parseInt(score,10)||0; var best=Math.max(lsNum(LS_BEST),score); lsPut(LS_BEST,best); return withRetry(function(){ return withLogin("tournamentScore("+best+")", function(){ return client.report.tournamentScore({ score:String(best), reportedAt:Math.floor(Date.now()/1000) }); }); }).then(function(r){ if(r) lsPut(LS_CONF,best); return r; }); },
+    reportTask:function(meta){ return withRetry(function(){ return withLogin("gameTask", function(){ return client.report.gameTask({ completeTime:Math.floor(Date.now()/1000), metadata:JSON.stringify(meta||{}) }); }); }); },
     taskResult:function(bizDate){ return withLogin("gameTaskResult", function(){ return client.report.gameTaskResult({ bizDate: bizDate||todayBiz() }); }); },
     claimMedal:function(){ return withLogin("medal(claim)", function(){ return client.report.medal(); }); },
     medalOwned:function(){ return withLogin("medalOwnership", function(){ return client.report.medalOwnership(); }); },
@@ -1144,7 +1165,7 @@
   }
   function boot(){
     log("boot",true,"sdk="+sdkReady()+" token="+hasTempToken()+" apiKey="+apiKeySet());
-    login().then(function(ok){ if(!ok)return; try{ var lv=(typeof ActiveLevel!=="undefined")?(ActiveLevel+1):(window.ActiveLevel!=null?window.ActiveLevel+1:0); if(lv) window.__bjCidi.reconcileMedal(lv); }catch(e){} });
+    login().then(function(ok){ if(!ok)return; try{ var lv=(typeof ActiveLevel!=="undefined")?(ActiveLevel+1):(window.ActiveLevel!=null?window.ActiveLevel+1:0); if(lv) window.__bjCidi.reconcileMedal(lv); }catch(e){} try{ flushPendingTournament(); }catch(e){} });
   }
   initAdSdk(); if(document.readyState!=="loading") setTimeout(boot,500); else document.addEventListener("DOMContentLoaded",function(){ initAdSdk(); setTimeout(boot,500); });
 
